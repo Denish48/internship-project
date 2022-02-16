@@ -8,17 +8,16 @@ const AdminLogin = () => {
     password: "",
   });
 
-  const getData = (e) => {
-    e.preventDefault();
-    setUser({ email: "", password: "" });
-  };
-
   let name, value;
   const UserData = (e) => {
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value });
-    console.log(user);
+  };
+  console.log(user);
+  const getData = (e) => {
+    e.preventDefault();
+    setUser({ email: "", password: "" });
   };
   return (
     <>
