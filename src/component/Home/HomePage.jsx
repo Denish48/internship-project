@@ -4,7 +4,9 @@ const HomePage = () => {
   const [allData, setAllData] = useState([]);
 
   const APIData = async () => {
-    const Responce = await fetch("https://eems.elsnerit.com//api/employees/employeesDropdownList");
+    const Responce = await fetch(
+      "https://eems.elsnerit.com//api/employees/employeesDropdownList"
+    );
     const res = await Responce.json();
     console.log(res);
     setAllData(res.data);
@@ -12,14 +14,16 @@ const HomePage = () => {
   };
   useEffect(() => {
     APIData();
-  });
+  }, []);
   return (
     <>
       <h1>Movies Name</h1>
-      {allData.map((val,id) => {
+      {allData.map((val, id) => {
         return (
           <>
-            <h1 key={id}>{val.first_name} {val.last_name}</h1>
+            <h1 key={id}>
+              {val.first_name} {val.last_name}
+            </h1>
           </>
         );
       })}

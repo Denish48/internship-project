@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
 }
-.login_button
+.login_button 
 {
-    background-color: white;
-    color: black;
-    border: 2px solid blue; 
+  background-color: white;
+  color: black;
+  border: 2px solid blue;
 }
