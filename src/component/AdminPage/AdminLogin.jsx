@@ -1,31 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AdminPage.css";
 import Avatar from "@mui/material/Avatar";
 
 const AdminLogin = () => {
-  const GetData = (e) => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const getData = (e) => {
     e.preventDefault();
+    setUser({ email: "", password: "" });
   };
 
+  let name, value;
+  const UserData = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+    setUser({ ...user, [name]: value });
+    console.log(user);
+  };
   return (
     <>
       <div>
-        <form action="submit" onSubmit={GetData}>
+        <form action="submit">
           <div className="login_avatar">
             <Avatar src="/broken-image.jpg" />
           </div>
           <br />
           <label htmlFor="Email">Email:</label>
           <br />
-          <input type="text" name="email" value="denish@gmail.com" />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={user.email}
+            onChange={UserData}
+          />
           <br />
           <br />
           <label htmlFor="Password">Enter Password:</label>
           <br />
-          <input type="password" name="password" value="hello" id="password" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={user.password}
+            onChange={UserData}
+          />
           <br />
           <br />
-          <button className="login_button">Login</button>
+          <button className="login_button" onClick={getData}>
+            Login
+          </button>
         </form>
       </div>
     </>
