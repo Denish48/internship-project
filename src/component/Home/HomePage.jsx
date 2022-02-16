@@ -12,7 +12,7 @@ const HomePage = () => {
   };
   useEffect(() => {
     APIData();
-  }, []);
+  });
   return (
     <>
       <h1>Movies Name</h1>
