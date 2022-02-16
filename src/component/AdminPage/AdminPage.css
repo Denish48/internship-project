@@ -1,0 +1,10 @@
+.login_avatar {
+  display: flex;
+  justify-content: center;
+}
+.login_button
+{
+    background-color: white;
+    color: black;
+    border: 2px solid blue; 
+}
