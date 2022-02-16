@@ -16,7 +16,7 @@ const HomePage = () => {
   return (
     <>
       <h1>Movies Name</h1>
-      {allData.map((val, id) => {
+      {allData.map((val) => {
         return (
           <>
             <h1>{val.first_name} {val.last_name}</h1>
