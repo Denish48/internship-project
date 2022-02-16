@@ -22,7 +22,7 @@ const AdminLogin = () => {
   return (
     <>
       <div>
-        <form action="submit">
+        <form action="submit" method="POST">
           <div className="login_avatar">
             <Avatar src="/broken-image.jpg" />
           </div>
