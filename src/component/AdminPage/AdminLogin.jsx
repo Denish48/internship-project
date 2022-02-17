@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./AdminPage.css";
+import MovieLinkData from "../MovieData/MovieLinkData";
 
 const AdminLogin = () => {
   //usestate for get value on change:
