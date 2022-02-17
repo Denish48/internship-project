@@ -29,17 +29,17 @@ const AdminLogin = () => {
     console.log("user", user);
     //check the condition for password match and redirect to other component:
 
-    if (user?.password === "123" && user?.email === "denish@gmail.com") {
+    if ((user?.password === "123" && user?.email === "denish@gmail.com") || (user?.password === "123" && user?.email === "bhautik@gmail.com")) {
       //set other state for conditional rendering:
       setRender_comp(true);
     }
-    if (user?.password === "") {
+    else if (user?.password === "") {
       setIncPassword("Enter Password");
     }
-    if (user?.email === "") {
+    else if (user?.email === "") {
       setIncPassword("Enter Email");
     } else {
-      setIncPassword("Incorrecct Password or Email");
+      setIncPassword("You Are Not Admin Member");
     }
   };
 
