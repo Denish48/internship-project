@@ -23,8 +23,8 @@ const MovieLinkData = () => {
     console.log(movie_Data);
     const { screenshot_link, link_480P, link_720P, img_link } = movie_Data;
 
-    //condition for when upload the data:
 
+    //post the data on database:
     const Responce = fetch(
       "https://moviedata-9c10b-default-rtdb.firebaseio.com/moviealldata.json",
       {
@@ -40,7 +40,7 @@ const MovieLinkData = () => {
         }),
       }
     );
-
+    //for if you get responce so after that form will be clear and show sucessfull message:
     if (Responce) {
       alert("data update sucessfully")
       setMovie_Data({
