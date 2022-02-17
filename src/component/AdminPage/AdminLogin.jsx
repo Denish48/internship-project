@@ -6,6 +6,7 @@ const AdminLogin = () => {
   //for redirect component:
   // const redirect = useNavigate();
   const [incPassword, setIncPassword] = useState("");
+  //state for rendering other component:
   const [render_comp, setRender_comp] = useState(false);
 
   //usestate for get value on change:
