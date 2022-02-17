@@ -27,11 +27,9 @@ const AdminLogin = () => {
     e.preventDefault();
     console.log("user", user);
     //check the condition for password match and redirect to other component:
-    // user?.password === "123456"
-    //   ? redirect("/mdata")
-    //   : setIncPassword("Incorrect Password");
 
     if (user?.password === "123" && user?.email === "denish@gmail.com") {
+      //set other state for conditional rendering:
       setRender_comp(true);
     }
     if (user?.password === "") {
@@ -46,48 +44,54 @@ const AdminLogin = () => {
 
   return (
     <>
-      {!render_comp && (
-        <div>
-          <div className="login-box">
-            <h2>Login</h2>
-            <form>
-              <div className="user-box">
-                <input
-                  type="text"
-                  name="email"
-                  id="email"
-                  value={user.email}
-                  onChange={pass_UserData}
-                  autoComplete="off"
-                />
-                <label>Email</label>
-              </div>
-              <div className="user-box">
-                <input
-                  required
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={user.password}
-                  onChange={pass_UserData}
-                  autoComplete="off"
-                />
-                <label>Password</label>
-              </div>
-              <a href="/mdata" onClick={submit_Data}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Submit
-              </a>
-            </form>
-            <br />
-            <h4 style={{ color: "skyblue" }}>{incPassword}</h4>
+      {
+        //render_comp false so this component is rendering:
+        !render_comp && (
+          <div>
+            <div className="login-box">
+              <h2>Login</h2>
+              <form>
+                <div className="user-box">
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    value={user.email}
+                    onChange={pass_UserData}
+                    autoComplete="off"
+                  />
+                  <label>Email</label>
+                </div>
+                <div className="user-box">
+                  <input
+                    required
+                    type="password"
+                    name="password"
+                    id="password"
+                    value={user.password}
+                    onChange={pass_UserData}
+                    autoComplete="off"
+                  />
+                  <label>Password</label>
+                </div>
+                <a href="/mdata" onClick={submit_Data}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Submit
+                </a>
+              </form>
+              <br />
+              <h4 style={{ color: "skyblue" }}>{incPassword}</h4>
+            </div>
           </div>
-        </div>
-      )}
-      {render_comp && <MovieLinkData />}
+        )
+      }
+      {
+        //render_comp is true this component is rendering:
+        render_comp && <MovieLinkData />
+      }
     </>
   );
 };

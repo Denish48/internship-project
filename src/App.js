@@ -5,7 +5,6 @@ import AdminLogin from "./component/AdminPage/AdminLogin";
 import AboutUs from "./component/Contact Us/AboutUs";
 import HomePage from "./component/Home/HomePage";
 import { Routes, Route } from "react-router-dom";
-import MovieLinkData from "./component/MovieData/MovieLinkData";
 function App() {
   useEffect(() => {
     document.title = "MoviesDownload";
@@ -19,7 +18,6 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/AdminLogin" element={<AdminLogin />} />
           <Route path="/AboutUs" element={<AboutUs />} />
-          <Route exact path="/mdata" element={<MovieLinkData />} />
         </Routes>
       </div>
     </>
