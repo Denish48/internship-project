@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import "./AdminPage.css";
-import MovieLinkData from "../MovieData/MovieLinkData";
 import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
+  //for redirect component:
+  const redirect = useNavigate();
+
   //usestate for get value on change:
   const [user, setUser] = useState({
     password: "",
   });
 
-  const redirect = useNavigate();
   let name, value;
   //value handler function:
   const pass_UserData = (e) => {
@@ -21,7 +22,7 @@ const AdminLogin = () => {
   const submit_getData = (e) => {
     e.preventDefault();
     console.log("user", user);
-    //check the condition for password match:
+    //check the condition for password match and redirect to other component:
     user?.password === "123456" ? redirect("/mdata") : alert("try again");
   };
 
