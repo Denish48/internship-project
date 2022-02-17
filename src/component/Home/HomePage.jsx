@@ -1,32 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { } from "react";
 
 const HomePage = () => {
-  const [allData, setAllData] = useState([]);
 
-  const APIData = async () => {
-    const Responce = await fetch(
-      "https://eems.elsnerit.com//api/employees/employeesDropdownList"
-    );
-    const res = await Responce.json();
-    console.log(res);
-    setAllData(res.data);
-    console.log("alldata", allData);
-  };
-  useEffect(() => {
-    APIData();
-  }, []);
+
   return (
     <>
-      <h1>Movies Name</h1>
-      {allData.map((val, id) => {
-        return (
-          <>
-            <h1 key={id}>
-              {val.first_name} {val.last_name}
-            </h1>
-          </>
-        );
-      })}
+      <h1>Movie List</h1>
+      <div>
+        <img src="https://m.media-amazon.com/images/M/MV5BMzUxNGIyY2MtNDUxZC00YWY1LTg0MzctM2ExNTNmODlhMTRlXkEyXkFqcGdeQXVyMTE4Nzk0MzE4._V1_SX300.jpg" alt="" />
+      </div>
+      <div>
+        <a href="">480P</a><br />
+        <a href="">720P</a>
+      </div>
     </>
   );
 };
