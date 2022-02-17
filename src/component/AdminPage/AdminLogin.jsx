@@ -51,7 +51,7 @@ const AdminLogin = () => {
           <div>
             <div className="login-box">
               <h2>Login</h2>
-              <form>
+              <form onSubmit={submit_Data}>
                 <div className="user-box">
                   <input
                     type="text"
@@ -75,13 +75,14 @@ const AdminLogin = () => {
                   />
                   <label>Password</label>
                 </div>
-                <a href="/mdata" onClick={submit_Data}>
+                <a href="/" onClick={submit_Data}>
                   <span></span>
                   <span></span>
                   <span></span>
                   <span></span>
                   Submit
                 </a>
+                <button type="submit" onClick={submit_Data} hidden>submit</button>
               </form>
               <br />
               <h4 style={{ color: "skyblue" }}>{incPassword}</h4>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const MovieLinkData = () => {
-
+  //state for getinput data from form:
   const [movie_Data, setMovie_Data] = useState({
     screenshot_link: "",
     link_480P: "",
@@ -9,10 +9,11 @@ const MovieLinkData = () => {
     img_link: ""
   })
   let name, value;
+  //onsubmit handler for this form:
   const Upload_Data_Handler = (e) => {
     e.preventDefault()
     console.log(movie_Data)
-
+    //condition for when upload the data:
     if (movie_Data !== " ") {
       alert("Sucessfully Upload")
     }
@@ -23,7 +24,7 @@ const MovieLinkData = () => {
       img_link: ""
     })
   }
-
+  //onChange event function for input value:
   const MovieLinksGet = (e) => {
     name = e.target.name
     value = e.target.value
@@ -32,6 +33,8 @@ const MovieLinkData = () => {
 
   return (
     <>
+      {/* button for add new admin user */}
+      <div><button>Add New Admin</button></div>
       <h1>Enter Movie Data</h1>
       <form onSubmit={Upload_Data_Handler} method="POST" >
         <label htmlFor="">Enter Screenshots Link:</label>
