@@ -19,8 +19,8 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/AdminLogin" element={<AdminLogin />} />
           <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/mdata" element={<MovieLinkData />} />
         </Routes>
-        <MovieLinkData/>
       </div>
     </>
   );
