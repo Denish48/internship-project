@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
   //for redirect component:
   const redirect = useNavigate();
+  const [incPassword, setIncPassword] = useState("");
 
   //usestate for get value on change:
   const [user, setUser] = useState({
@@ -23,7 +24,18 @@ const AdminLogin = () => {
     e.preventDefault();
     console.log("user", user);
     //check the condition for password match and redirect to other component:
-    user?.password === "123456" ? redirect("/mdata") : alert("try again");
+    // user?.password === "123456"
+    //   ? redirect("/mdata")
+    //   : setIncPassword("Incorrect Password");
+
+    if (user?.password === "123") {
+      redirect("/mdata");
+    }
+    if (user?.password === "") {
+      setIncPassword("Enter Password");
+    } else {
+      setIncPassword("Incorrecct password");
+    }
   };
 
   return (
@@ -62,6 +74,8 @@ const AdminLogin = () => {
               Submit
             </a>
           </form>
+          <br />
+          <h4 style={{ color: "skyblue" }}>{incPassword}</h4>
         </div>
       </div>
     </>

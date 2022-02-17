@@ -4,6 +4,7 @@ const MovieLinkData = () => {
   return (
     <>
       <h1>hello</h1>
+      
     </>
   );
 };
