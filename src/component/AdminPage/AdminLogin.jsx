@@ -13,10 +13,10 @@ const AdminLogin = () => {
 
   let name, value;
   //value handler function:
-  const pass_UserData = (e) => {
+  const pass_UserData = async (e) => {
     name = e.target.name;
     value = e.target.value;
-    setUser({ ...user, [name]: value });
+   await setUser({ ...user, [name]: value });
   };
 
   //subit handler function:
