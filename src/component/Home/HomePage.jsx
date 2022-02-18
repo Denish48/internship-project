@@ -36,6 +36,7 @@ const HomePage = () => {
                   <img src={cur_ELE.image_link} />
                 </div>
                 <div className="main-text">
+                <p style={{fontWeight:"bold"}}>movie name and other information</p>
                   <a href={cur_ELE.screenshot_link}>Screenshot</a>
                   <a href={cur_ELE.link_480P}>480P</a>
                   <a href={cur_ELE.link_720P}>720P</a>

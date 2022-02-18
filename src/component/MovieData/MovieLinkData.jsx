@@ -11,6 +11,8 @@ const MovieLinkData = () => {
   const [down480P_Link, setDown480P_Link] = useState("")
   const [down720P_Link, setDown720P_Link] = useState("")
   const [img_Link, setimg_Link] = useState("")
+  const [movie_Name, setMovie_Name] = useState("")
+  const [uni_ID, setUni_ID] = useState(new Date().toLocaleDateString())
   //variable create for database collection:
   const dtds = collection(dt, "AllMovieData")
 
@@ -18,7 +20,14 @@ const MovieLinkData = () => {
   const addMovieLinks = async () => {
     if (screen_Link.trim().length > 0) {
 
-      await addDoc(dtds, { screenshot_link: screen_Link, link_480P: down480P_Link, link_720P: down720P_Link, image_link: img_Link })
+      await addDoc(dtds, {
+        screenshot_link: screen_Link,
+        link_480P: down480P_Link,
+        link_720P: down720P_Link,
+        image_link: img_Link,
+        uni_ID: uni_ID,
+        movie_Name: movie_Name,
+      })
     }
   }
 
@@ -32,6 +41,13 @@ const MovieLinkData = () => {
     setDown480P_Link(down480P_Link)
     setDown720P_Link(down720P_Link)
     setimg_Link(img_Link)
+    setMovie_Name(movie_Name)
+
+
+    setUni_ID(new Date().toLocaleDateString())
+
+
+
     //console data :
     // console.log(screen_Link);
     // console.log(down480P_Link);
@@ -43,6 +59,7 @@ const MovieLinkData = () => {
       setDown480P_Link("")
       setDown720P_Link("")
       setimg_Link("")
+
     }
   }
 
@@ -59,7 +76,21 @@ const MovieLinkData = () => {
       <br /><br />
       <h2>Enter Movie Data</h2>
       <form onSubmit={All_Data_Handler} >
+        <input type="text" value={uni_ID} hidden name="uni_ID" />
         <div className="img_file_input">
+          <label >Enter Movie Name:</label>
+          <br /><br />
+          <input
+            type="text"
+            name="movie_Name"
+            id="movie_Name"
+            value={movie_Name}
+            onChange={(e) => setMovie_Name(e.target.value)}
+            required
+            autoComplete="off"
+          />
+          <br />
+          <br />
           <label htmlFor="">Enter Img Link:</label>
           <br />
           <input
