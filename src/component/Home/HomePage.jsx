@@ -20,7 +20,7 @@ const HomePage = () => {
   //when site load first time call the function and show the data:
   useEffect(() => {
     showdata();
-  }, []);
+  },[]);
 
 
 
