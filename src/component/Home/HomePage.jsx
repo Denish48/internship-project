@@ -15,7 +15,7 @@ const HomePage = () => {
   const showdata = async () => {
     const data = await getDocs(dtds)
     console.log(data);
-    await setData_Show(data.docs.map((doc) => ({ ...doc.data() })))
+    await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })))
   }
   //when site load first time call the function and show the data:
   useEffect(() => {
@@ -27,20 +27,18 @@ const HomePage = () => {
   return (
     <>
       {
-        data_Show.map((cur_ELE) => {
+        data_Show.map((cur_ELE, index) => {
           return (
             <>
-           
-              <div className="back">
-                <div className="maindiv">
-                  <div className="image">
-                    <img src={cur_ELE.image_link} />
-                  </div>
-                  <div className="main-text">
-                    <a href={cur_ELE.screenshot_link}>Screenshot</a>
-                    <a href={cur_ELE.link_480P}>480P</a>
-                    <a href={cur_ELE.link_720P}>720P</a>
-                  </div>
+
+              <div className="maindiv" key={index}>
+                <div className="image">
+                  <img src={cur_ELE.image_link} />
+                </div>
+                <div className="main-text">
+                  <a href={cur_ELE.screenshot_link}>Screenshot</a>
+                  <a href={cur_ELE.link_480P}>480P</a>
+                  <a href={cur_ELE.link_720P}>720P</a>
                 </div>
               </div>
             </>
