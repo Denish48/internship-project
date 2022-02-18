@@ -18,6 +18,7 @@ const MovieLinkData = () => {
   const addMovieLinks = async () => {
     if (screen_Link.trim().length > 0) {
       await addDoc(dtds, {
+        //first of the input name attribute value and after state value:
         screenshot_link: screen_Link,
         link_480P: down480P_Link,
         link_720P: down720P_Link,
