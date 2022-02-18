@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { dt } from "../FireBase";
 import { collection, getDocs } from 'firebase/firestore'
+import "./HomePage.css"
 
 
 const HomePage = () => {
@@ -29,14 +30,17 @@ const HomePage = () => {
         data_Show.map((cur_ELE) => {
           return (
             <>
-              <div className="main_div">
-                <div className="image_set_div">
-                  <img src={cur_ELE.image_link} alt="" />
-                </div>
-                <div className="download_link_div">
-                  <a href={cur_ELE.link_480P}>480P</a>
-                  <br />
-                  <a href={cur_ELE.link_720P}>720P</a>
+           
+              <div className="back">
+                <div className="maindiv">
+                  <div className="image">
+                    <img src={cur_ELE.image_link} />
+                  </div>
+                  <div className="main-text">
+                    <a href={cur_ELE.screenshot_link}>Screenshot</a>
+                    <a href={cur_ELE.link_480P}>480P</a>
+                    <a href={cur_ELE.link_720P}>720P</a>
+                  </div>
                 </div>
               </div>
             </>
