@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//import database from firebase file:
 import { dt } from "../FireBase";
 import { addDoc, collection } from 'firebase/firestore'
 
@@ -10,9 +11,10 @@ const MovieLinkData = () => {
   const [down480P_Link, setDown480P_Link] = useState("")
   const [down720P_Link, setDown720P_Link] = useState("")
   const [img_Link, setimg_Link] = useState("")
+  //variable create for database collection:
   const dtds = collection(dt, "AllMovieData")
 
-
+  //function for store data into firebase database:
   const addMovieLinks = async () => {
     if (screen_Link.trim().length > 0) {
 
@@ -25,16 +27,23 @@ const MovieLinkData = () => {
 
   const All_Data_Handler = (e) => {
     e.preventDefault()
-
+    //for set the data on given setstate:
     setScreen_Link(screen_Link)
     setDown480P_Link(down480P_Link)
     setDown720P_Link(down720P_Link)
     setimg_Link(img_Link)
-    console.log(screen_Link);
-    console.log(down480P_Link);
-    console.log(down720P_Link);
-    console.log(img_Link);
-    addMovieLinks();
+    //console data :
+    // console.log(screen_Link);
+    // console.log(down480P_Link);
+    // console.log(down720P_Link);
+    // console.log(img_Link);
+    //function call for data store into firebase database after that form will be clear:
+    if (addMovieLinks()) {
+      setScreen_Link("")
+      setDown480P_Link("")
+      setDown720P_Link("")
+      setimg_Link("")
+    }
   }
 
 
