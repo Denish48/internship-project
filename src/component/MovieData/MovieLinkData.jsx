@@ -42,8 +42,6 @@ const MovieLinkData = () => {
     setDown720P_Link(down720P_Link)
     setimg_Link(img_Link)
     setMovie_Name(movie_Name)
-
-
     setUni_ID(new Date().toLocaleDateString())
 
 
