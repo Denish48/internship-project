@@ -1,57 +1,44 @@
 import React, { useState } from "react";
+import { dt } from "../FireBase";
+import { addDoc, collection } from 'firebase/firestore'
+
 
 const MovieLinkData = () => {
-  //state for getinput data from form:
-  const [movie_Data, setMovie_Data] = useState({
-    screenshot_link: "",
-    link_480P: "",
-    link_720P: "",
-    img_link: "",
-  });
 
-  let name, value;
+  //state for getinput data from form:
+  const [screen_Link, setScreen_Link] = useState("")
+  const [down480P_Link, setDown480P_Link] = useState("")
+  const [down720P_Link, setDown720P_Link] = useState("")
+  const [img_Link, setimg_Link] = useState("")
+  const dtds = collection(dt, "AllMovieData")
+
+
+  const addMovieLinks = async () => {
+    if (screen_Link.trim().length > 0) {
+
+      await addDoc(dtds, { screenshot_link: screen_Link, link_480P: down480P_Link, link_720P: down720P_Link, image_link: img_Link })
+    }
+  }
+
 
   //onChange event function for input value:
-  const MovieLinksGet = (e) => {
-    name = e.target.name;
-    value = e.target.value;
-    setMovie_Data({ ...movie_Data, [name]: value });
-  };
-  //onsubmit handler for this form:
-  const Upload_Data_Handler = async (e) => {
-    e.preventDefault();
-    console.log(movie_Data);
-    const { screenshot_link, link_480P, link_720P, img_link } = movie_Data;
+
+  const All_Data_Handler = (e) => {
+    e.preventDefault()
+
+    setScreen_Link(screen_Link)
+    setDown480P_Link(down480P_Link)
+    setDown720P_Link(down720P_Link)
+    setimg_Link(img_Link)
+    console.log(screen_Link);
+    console.log(down480P_Link);
+    console.log(down720P_Link);
+    console.log(img_Link);
+    addMovieLinks();
+  }
 
 
-    //post the data on database:
-    const Responce = fetch(
-      "https://moviedata-9c10b-default-rtdb.firebaseio.com/moviealldata.json",
-      {
-        method: "POST",
-        header: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          screenshot_link,
-          link_480P,
-          link_720P,
-          img_link,
-        }),
-      }
-    );
-    //for if you get responce so after that form will be clear and show sucessfull message:
-    if (Responce) {
-      alert("data update sucessfully")
-      setMovie_Data({
-        screenshot_link: "",
-        link_480P: "",
-        link_720P: "",
-        img_link: "",
-      })
 
-    }
-  };
 
 
   return (
@@ -61,15 +48,15 @@ const MovieLinkData = () => {
         <button>Add New Admin</button>
       </div>
       <h1>Enter Movie Data</h1>
-      <form onSubmit={Upload_Data_Handler} method="POST">
+      <form onSubmit={All_Data_Handler} >
         <label htmlFor="">Enter Screenshots Link:</label>
         <br />
         <input
           type="text"
+          value={screen_Link}
+          onChange={(e) => setScreen_Link(e.target.value)}
           name="screenshot_link"
-          value={movie_Data.screenshot_link}
           id="screenshot_link"
-          onChange={MovieLinksGet}
           required
         />
         <br />
@@ -78,10 +65,11 @@ const MovieLinkData = () => {
         <br />
         <input
           type="text"
+          value={down480P_Link}
+
+          onChange={(e) => setDown480P_Link(e.target.value)}
           name="link_480P"
           id="link_480P"
-          value={movie_Data.link_480P}
-          onChange={MovieLinksGet}
           required
         />
         <br />
@@ -90,10 +78,11 @@ const MovieLinkData = () => {
         <br />
         <input
           type="text"
+          value={down720P_Link}
+
+          onChange={(e) => setDown720P_Link(e.target.value)}
           name="link_720P"
           id="link_720P"
-          value={movie_Data.link_720P}
-          onChange={MovieLinksGet}
           required
         />
         <br />
@@ -103,10 +92,11 @@ const MovieLinkData = () => {
           <br />
           <input
             type="text"
-            name="img_link"
+            value={img_Link}
+
+            onChange={(e) => setimg_Link(e.target.value)}
+            name="image_link"
             id="img_link"
-            value={movie_Data.img_link}
-            onChange={MovieLinksGet}
             required
           />
           <br />
