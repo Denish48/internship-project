@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //import database from firebase file:
 import { dt } from "../FireBase";
+//import the required value from firestore
 import { addDoc, collection } from "firebase/firestore";
 
 const MovieLinkData = () => {
