@@ -56,8 +56,24 @@ const MovieLinkData = () => {
       <div>
         <button>Add New Admin</button>
       </div>
-      <h1>Enter Movie Data</h1>
+      <br /><br />
+      <h2>Enter Movie Data</h2>
       <form onSubmit={All_Data_Handler} >
+        <div className="img_file_input">
+          <label htmlFor="">Enter Img Link:</label>
+          <br />
+          <input
+            type="text"
+            value={img_Link}
+            onChange={(e) => setimg_Link(e.target.value)}
+            name="image_link"
+            id="img_link"
+            required
+            autoComplete="off"
+          />
+          <br />
+          <br />
+        </div>
         <label htmlFor="">Enter Screenshots Link:</label>
         <br />
         <input
@@ -67,6 +83,7 @@ const MovieLinkData = () => {
           name="screenshot_link"
           id="screenshot_link"
           required
+          autoComplete="off"
         />
         <br />
         <br />
@@ -75,11 +92,11 @@ const MovieLinkData = () => {
         <input
           type="text"
           value={down480P_Link}
-
           onChange={(e) => setDown480P_Link(e.target.value)}
           name="link_480P"
           id="link_480P"
           required
+          autoComplete="off"
         />
         <br />
         <br />
@@ -88,28 +105,16 @@ const MovieLinkData = () => {
         <input
           type="text"
           value={down720P_Link}
-
           onChange={(e) => setDown720P_Link(e.target.value)}
           name="link_720P"
           id="link_720P"
           required
+          autoComplete="off"
         />
         <br />
         <br />
-        <div className="img_file_input">
-          <label htmlFor="">Enter Img Link:</label>
-          <br />
-          <input
-            type="text"
-            value={img_Link}
 
-            onChange={(e) => setimg_Link(e.target.value)}
-            name="image_link"
-            id="img_link"
-            required
-          />
-          <br />
-          <br />
+        <div>
           <button type="submit">Upload</button>
         </div>
       </form>
