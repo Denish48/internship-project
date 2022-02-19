@@ -1,10 +1,13 @@
 import "./App.css";
-import React, { useEffect } from "react";
-import NavBar from "./component/Header/NavBar";
+import React, { useEffect, Suspense } from "react";
 import AdminLogin from "./component/AdminPage/AdminLogin";
 import AboutUs from "./component/Contact Us/AboutUs";
-import HomePage from "./component/Home/HomePage";
 import { Routes, Route } from "react-router-dom";
+import Spinner from "./component/Spinner/Spinner";
+// import NavBar from "./component/Header/NavBar";
+const HomePage = React.lazy(() => import("./component/Home/HomePage")); // Lazy-loaded
+const NavBar = React.lazy(() => import("./component/Header/NavBar"));
+
 function App() {
   useEffect(() => {
     document.title = "MoviesDownload";
@@ -12,14 +15,22 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <NavBar />
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/AdminLogin" element={<AdminLogin />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-        </Routes>
-      </div>
+      <Suspense
+        fallback={
+          <>
+            <Spinner />
+          </>
+        }
+      >
+        <div className="App">
+          <NavBar />
+          <Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/AdminLogin" element={<AdminLogin />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+          </Routes>
+        </div>
+      </Suspense>
     </>
   );
 }
