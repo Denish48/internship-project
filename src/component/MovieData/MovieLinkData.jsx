@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 //import database from firebase file:
 import { dt } from "../FireBase";
 //import the required value from firestore
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import '../MovieData/MovieLinkData.css';
-import { getDocs } from 'firebase/firestore'
 
 
 const MovieLinkData = () => {
@@ -14,7 +13,10 @@ const MovieLinkData = () => {
   const [down720P_Link, setDown720P_Link] = useState("");
   const [img_Link, setimg_Link] = useState("");
   const [movie_Name, setMovie_Name] = useState("");
+  //this state generate date id and after that store into database:
   const [uni_ID, setUni_ID] = useState(new Date().toLocaleDateString());
+
+  //store the databse data into this array:
   const [data_Show, setData_Show] = useState([])
 
   //variable create for database collection:
@@ -54,6 +56,7 @@ const MovieLinkData = () => {
     // console.log(img_Link);
     //function call for data store into firebase database after that form will be clear:
     if (addMovieLinks()) {
+      setMovie_Name("")
       setScreen_Link("");
       setDown480P_Link("");
       setDown720P_Link("");
@@ -79,7 +82,7 @@ const MovieLinkData = () => {
         <button className="btn btn-success ">Add New Admin</button>
       </div>
       <div className="data-file">
-        ``
+
         <h2>Enter Movie Data</h2>
         <form onSubmit={All_Data_Handler}>
           <input type="text" value={uni_ID} hidden name="uni_ID" />
@@ -93,7 +96,7 @@ const MovieLinkData = () => {
               onChange={(e) => setMovie_Name(e.target.value)}
               required
               autoComplete="off"
-              class="form-control"
+              className="form-control"
             />
           </div>
           <div className="img_file_input form-group">
@@ -106,7 +109,7 @@ const MovieLinkData = () => {
               id="img_link"
               required
               autoComplete="off"
-              class="form-control"
+              className="form-control"
             />
           </div>
           <div className="img_file_input form-group">
@@ -119,7 +122,7 @@ const MovieLinkData = () => {
               id="screenshot_link"
               required
               autoComplete="off"
-              class="form-control"
+              className="form-control"
             />
           </div>
 
@@ -134,7 +137,7 @@ const MovieLinkData = () => {
               id="link_480P"
               required
               autoComplete="off"
-              class="form-control"
+              className="form-control"
             />
           </div>
 
@@ -148,7 +151,7 @@ const MovieLinkData = () => {
               id="link_720P"
               required
               autoComplete="off"
-              class="form-control"
+              className="form-control"
             />
           </div>
 
@@ -158,10 +161,9 @@ const MovieLinkData = () => {
 
         </form>
 
-
       </div>
       <div>
-        <h2>Here create table for movie name list and shoew the delete and update button </h2>
+        <h2>Movie's List</h2>
 
         <div className="table_content">
           <table>
@@ -171,10 +173,10 @@ const MovieLinkData = () => {
               <th>Delete Data</th>
             </tr>
             {
-              data_Show.map((element) => {
+              data_Show.map((element, index) => {
                 return (
                   <>
-                    <tr>
+                    <tr key={index}>
                       <td>{element.movie_Name}</td>
                       <td>{element.uni_ID}</td>
                       <td><button className="btn btn-danger">Delete</button></td>
@@ -184,6 +186,7 @@ const MovieLinkData = () => {
               })
             }
 
+            {/* <tbody>, <thead> or <tfoot>  */}
           </table>
         </div>
 
