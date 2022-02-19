@@ -4,6 +4,8 @@ import { dt } from "../FireBase";
 //import the required value from firestore
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import '../MovieData/MovieLinkData.css';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 const MovieLinkData = () => {
@@ -14,7 +16,7 @@ const MovieLinkData = () => {
   const [img_Link, setimg_Link] = useState("");
   const [movie_Name, setMovie_Name] = useState("");
   //this state generate date id and after that store into database:
-  const [uni_ID, setUni_ID] = useState(new Date().toLocaleDateString());
+  const [uni_ID, setUni_ID] = useState(`${new Date().toLocaleDateString()} uuid: ${uuidv4()}`);
 
   //store the databse data into this array:
   const [data_Show, setData_Show] = useState([])
@@ -47,7 +49,7 @@ const MovieLinkData = () => {
     setDown720P_Link(down720P_Link);
     setimg_Link(img_Link);
     setMovie_Name(movie_Name);
-    setUni_ID(new Date().toLocaleDateString());
+    setUni_ID(`${new Date().toLocaleDateString()} uuid: ${uuidv4()}`);
 
     //console data :
     // console.log(screen_Link);
@@ -96,7 +98,7 @@ const MovieLinkData = () => {
               onChange={(e) => setMovie_Name(e.target.value)}
               required
               autoComplete="off"
-              className="form-control"
+              class="form-control"
             />
           </div>
           <div className="img_file_input form-group">
@@ -109,7 +111,7 @@ const MovieLinkData = () => {
               id="img_link"
               required
               autoComplete="off"
-              className="form-control"
+              class="form-control"
             />
           </div>
           <div className="img_file_input form-group">
@@ -122,7 +124,7 @@ const MovieLinkData = () => {
               id="screenshot_link"
               required
               autoComplete="off"
-              className="form-control"
+              class="form-control"
             />
           </div>
 
@@ -137,7 +139,7 @@ const MovieLinkData = () => {
               id="link_480P"
               required
               autoComplete="off"
-              className="form-control"
+              class="form-control"
             />
           </div>
 
@@ -151,7 +153,7 @@ const MovieLinkData = () => {
               id="link_720P"
               required
               autoComplete="off"
-              className="form-control"
+              class="form-control"
             />
           </div>
 
