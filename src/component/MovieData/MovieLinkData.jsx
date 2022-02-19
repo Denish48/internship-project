@@ -3,10 +3,8 @@ import React, { useState, useEffect } from "react";
 import { dt } from "../FireBase";
 //import the required value from firestore
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import '../MovieData/MovieLinkData.css';
-import { v4 as uuidv4 } from 'uuid';
-
-
+import "../MovieData/MovieLinkData.css";
+import { v4 as uuidv4 } from "uuid";
 
 const MovieLinkData = () => {
   //state for getinput data from form:
@@ -16,10 +14,12 @@ const MovieLinkData = () => {
   const [img_Link, setimg_Link] = useState("");
   const [movie_Name, setMovie_Name] = useState("");
   //this state generate date id and after that store into database:
-  const [uni_ID, setUni_ID] = useState(`${new Date().toLocaleDateString()} uuid: ${uuidv4()}`);
+  const [uni_ID, setUni_ID] = useState(
+    `${new Date().toLocaleDateString()} uuid: ${uuidv4()}`
+  );
 
   //store the databse data into this array:
-  const [data_Show, setData_Show] = useState([])
+  const [data_Show, setData_Show] = useState([]);
 
   //variable create for database collection:
   const dtds = collection(dt, "AllMovieData");
@@ -58,7 +58,7 @@ const MovieLinkData = () => {
     // console.log(img_Link);
     //function call for data store into firebase database after that form will be clear:
     if (addMovieLinks()) {
-      setMovie_Name("")
+      setMovie_Name("");
       setScreen_Link("");
       setDown480P_Link("");
       setDown720P_Link("");
@@ -68,10 +68,10 @@ const MovieLinkData = () => {
 
   //function for get data into database:
   const movienamedata = async () => {
-    const data = await getDocs(dtds)
+    const data = await getDocs(dtds);
     console.log(data);
-    await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })))
-  }
+    await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })));
+  };
   //when site load first time call the function and show the data:
   useEffect(() => {
     movienamedata();
@@ -84,7 +84,6 @@ const MovieLinkData = () => {
         <button className="btn btn-success ">Add New Admin</button>
       </div>
       <div className="data-file">
-
         <h2>Enter Movie Data</h2>
         <form onSubmit={All_Data_Handler}>
           <input type="text" value={uni_ID} hidden name="uni_ID" id="uni_ID" />
@@ -128,7 +127,6 @@ const MovieLinkData = () => {
             />
           </div>
 
-
           <div className="img_file_input form-group">
             <label htmlFor="">Enter 480p Download Link:</label>
             <input
@@ -158,11 +156,11 @@ const MovieLinkData = () => {
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">Upload</button>
+            <button className="btn btn-primary" type="submit">
+              Upload
+            </button>
           </div>
-
         </form>
-
       </div>
       <div>
         <h2>Movie's List</h2>
@@ -174,28 +172,23 @@ const MovieLinkData = () => {
               <th>Unique_ID</th>
               <th>Delete Data</th>
             </tr>
-            {
-              data_Show.map((element, index) => {
-                return (
-                  <>
-                    <tr key={index}>
-                      <td>{element.movie_Name}</td>
-                      <td>{element.uni_ID}</td>
-                      <td><button className="btn btn-danger">Delete</button></td>
-                    </tr>
-                  </>
-                )
-              })
-            }
+            {data_Show.map((element, index) => {
+              return (
+                <>
+                  <tr key={index}>
+                    <td>{element.movie_Name}</td>
+                    <td>{element.uni_ID}</td>
+                    <td>
+                      <button className="btn btn-danger">Delete</button>
+                    </td>
+                  </tr>
+                </>
+              );
+            })}
 
             {/* <tbody>, <thead> or <tfoot>  */}
           </table>
         </div>
-
-
-
-
-
       </div>
     </>
   );
