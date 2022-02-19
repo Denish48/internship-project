@@ -1,9 +1,34 @@
-.img_file_input {
+/* .img_file_input {
   display: flex;
   justify-content: center;
 }
-.download_link_div
-{
+.download_link_div {
   display: flex;
   justify-content: center;
+} */
+.data-file {
+  width: 60% !important;
+  margin: 0 auto !important;
+  background-color: #dcddd3 !important;
+  padding: 30px 50px;
+  border-radius: 50px;
+}
+.data-file .form-group {
+  margin: 10px 0;
+}
+.data-file h2 {
+  margin: 15px 0 16px 0;
+}
+.data-file .form-group button.btn.btn-primary {
+  padding: 10px 55px;
+  text-transform: uppercase;
+  color: #00ffff;
+}
+.data-file .form-group label {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.data-file .form-group input {
+  width: 80%;
+  margin: 10px auto;
 }

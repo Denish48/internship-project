@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { dt } from "../FireBase";
 //import the required value from firestore
 import { addDoc, collection } from "firebase/firestore";
+import '../MovieData/MovieLinkData.css';
 
 const MovieLinkData = () => {
   //state for getinput data from form:
@@ -57,20 +58,16 @@ const MovieLinkData = () => {
   };
 
   return (
-    <>
+    <div className="data-file">
       {/* button for add new admin user */}
       <div>
-        <button>Add New Admin</button>
+        <button className="btn btn-success ">Add New Admin</button>
       </div>
-      <br />
-      <br />
       <h2>Enter Movie Data</h2>
       <form onSubmit={All_Data_Handler}>
         <input type="text" value={uni_ID} hidden name="uni_ID" />
-        <div className="img_file_input">
+        <div className="img_file_input form-group">
           <label>Enter Movie Name:</label>
-          <br />
-          <br />
           <input
             type="text"
             name="movie_Name"
@@ -79,11 +76,11 @@ const MovieLinkData = () => {
             onChange={(e) => setMovie_Name(e.target.value)}
             required
             autoComplete="off"
+            class="form-control"
           />
-          <br />
-          <br />
+        </div>
+        <div className="img_file_input form-group">
           <label htmlFor="">Enter Img Link:</label>
-          <br />
           <input
             type="text"
             value={img_Link}
@@ -92,59 +89,62 @@ const MovieLinkData = () => {
             id="img_link"
             required
             autoComplete="off"
+            class="form-control"
           />
-          <br />
-          <br />
         </div>
-        <label htmlFor="">Enter Screenshots Link:</label>
-        <br />
-        <input
-          type="text"
-          value={screen_Link}
-          onChange={(e) => setScreen_Link(e.target.value)}
-          name="screenshot_link"
-          id="screenshot_link"
-          required
-          autoComplete="off"
-        />
-        <br />
-        <br />
-        <label htmlFor="">Enter 480p Download Link:</label>
-        <br />
-        <input
-          type="text"
-          value={down480P_Link}
-          onChange={(e) => setDown480P_Link(e.target.value)}
-          name="link_480P"
-          id="link_480P"
-          required
-          autoComplete="off"
-        />
-        <br />
-        <br />
-        <label htmlFor="">Enter 720p Download Link:</label>
-        <br />
-        <input
-          type="text"
-          value={down720P_Link}
-          onChange={(e) => setDown720P_Link(e.target.value)}
-          name="link_720P"
-          id="link_720P"
-          required
-          autoComplete="off"
-        />
-        <br />
-        <br />
+        <div className="img_file_input form-group">
+          <label htmlFor="">Enter Screenshots Link:</label>
+          <input
+            type="text"
+            value={screen_Link}
+            onChange={(e) => setScreen_Link(e.target.value)}
+            name="screenshot_link"
+            id="screenshot_link"
+            required
+            autoComplete="off"
+            class="form-control"
+          />
+        </div>
 
-        <div>
-          <button type="submit">Upload</button>
+
+        <div className="img_file_input form-group">
+          <label htmlFor="">Enter 480p Download Link:</label>
+          <input
+            type="text"
+            value={down480P_Link}
+            onChange={(e) => setDown480P_Link(e.target.value)}
+            name="link_480P"
+            id="link_480P"
+            required
+            autoComplete="off"
+            class="form-control"
+          />
         </div>
+
+        <div className="img_file_input form-group">
+          <label htmlFor="">Enter 720p Download Link:</label>
+          <input
+            type="text"
+            value={down720P_Link}
+            onChange={(e) => setDown720P_Link(e.target.value)}
+            name="link_720P"
+            id="link_720P"
+            required
+            autoComplete="off"
+            class="form-control"
+          />
+        </div>
+
+        <div className="form-group">
+          <button className="btn btn-primary" type="submit">Upload</button>
+        </div>
+
       </form>
 
       <div>
         <h2>Here create table for movie name list and shoew the delete and update button </h2>
       </div>
-    </>
+    </div>
   );
 };
 
