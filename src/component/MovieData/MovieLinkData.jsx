@@ -85,7 +85,7 @@ const MovieLinkData = () => {
 
         <h2>Enter Movie Data</h2>
         <form onSubmit={All_Data_Handler}>
-          <input type="text" value={uni_ID} hidden name="uni_ID" />
+          <input type="text" value={uni_ID} hidden name="uni_ID" id="uni_ID" />
           <div className="img_file_input form-group">
             <label>Enter Movie Name:</label>
             <input
