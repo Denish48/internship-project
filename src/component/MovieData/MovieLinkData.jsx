@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //import database from firebase file:
 import { dt } from "../FireBase";
 //import the required value from firestore
 import { addDoc, collection } from "firebase/firestore";
 import '../MovieData/MovieLinkData.css';
+import { getDocs } from 'firebase/firestore'
+
 
 const MovieLinkData = () => {
   //state for getinput data from form:
@@ -13,6 +15,8 @@ const MovieLinkData = () => {
   const [img_Link, setimg_Link] = useState("");
   const [movie_Name, setMovie_Name] = useState("");
   const [uni_ID, setUni_ID] = useState(new Date().toLocaleDateString());
+  const [data_Show, setData_Show] = useState([])
+
   //variable create for database collection:
   const dtds = collection(dt, "AllMovieData");
 
@@ -57,6 +61,17 @@ const MovieLinkData = () => {
     }
   };
 
+  //function for get data into database:
+  const movienamedata = async () => {
+    const data = await getDocs(dtds)
+    console.log(data);
+    await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })))
+  }
+  //when site load first time call the function and show the data:
+  useEffect(() => {
+    movienamedata();
+  }, []);
+
   return (
     <>
       {/* button for add new admin user */}
@@ -64,7 +79,7 @@ const MovieLinkData = () => {
         <button className="btn btn-success ">Add New Admin</button>
       </div>
       <div className="data-file">
-
+        ``
         <h2>Enter Movie Data</h2>
         <form onSubmit={All_Data_Handler}>
           <input type="text" value={uni_ID} hidden name="uni_ID" />
@@ -143,9 +158,39 @@ const MovieLinkData = () => {
 
         </form>
 
-        <div>
-          <h2>Here create table for movie name list and shoew the delete and update button </h2>
+
+      </div>
+      <div>
+        <h2>Here create table for movie name list and shoew the delete and update button </h2>
+
+        <div className="table_content">
+          <table>
+            <tr>
+              <th>Movie Name</th>
+              <th>Unique_ID</th>
+              <th>Delete Data</th>
+            </tr>
+            {
+              data_Show.map((element) => {
+                return (
+                  <>
+                    <tr>
+                      <td>{element.movie_Name}</td>
+                      <td>{element.uni_ID}</td>
+                      <td><button className="btn btn-danger">Delete</button></td>
+                    </tr>
+                  </>
+                )
+              })
+            }
+
+          </table>
         </div>
+
+
+
+
+
       </div>
     </>
   );
