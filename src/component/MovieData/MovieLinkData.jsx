@@ -75,7 +75,7 @@ const MovieLinkData = () => {
   //when site load first time call the function and show the data:
   useEffect(() => {
     movienamedata();
-  }, []);
+  }, [All_Data_Handler]);
 
   return (
     <>
