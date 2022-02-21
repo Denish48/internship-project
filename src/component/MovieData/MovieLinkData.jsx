@@ -159,7 +159,6 @@ const MovieLinkData = () => {
 
           <div className="form-group">
             <button
-              calss="form-control"
               className="btn btn-primary"
               type="submit"
             >
