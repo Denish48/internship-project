@@ -25,11 +25,11 @@ const AdminRegister = () => {
         </button>
       )}
       {add_page_Render && (
-        <>
+        <div>
           <h1>Register</h1>
           <Container>
             <form onSubmit={New_Admin_Handler}>
-              <label htmlFor="">User Name</label>
+              <label htmlFor="User Name">User Name</label>
 
               <input
                 type="text"
@@ -39,7 +39,7 @@ const AdminRegister = () => {
                 required
                 autoComplete="off"
               />
-              <label htmlFor="">E-mail</label>
+              <label htmlFor="E-mail">E-mail</label>
               <input
                 type="text"
                 name="e-mail"
@@ -48,7 +48,7 @@ const AdminRegister = () => {
                 autoComplete="off"
                 required
               />
-              <label htmlFor="">Password</label>
+              <label htmlFor="Password">Password</label>
               <input
                 type="text"
                 name="password"
@@ -63,7 +63,7 @@ const AdminRegister = () => {
               </button>
             </form>
           </Container>
-        </>
+        </div>
       )}
     </>
   );
