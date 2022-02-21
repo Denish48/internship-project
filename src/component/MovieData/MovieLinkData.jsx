@@ -80,7 +80,6 @@ const MovieLinkData = () => {
 
   return (
     <>
-
       {/* button for add new admin user */}
       <div className="admin_button">
         <AdminRegister />
@@ -175,8 +174,10 @@ const MovieLinkData = () => {
               <th>Unique_ID</th>
               <th>Delete Data</th>
             </tr>
-            {data_Show.map((element,index) => {
-              {/* const { uni_ID } = data_Show; */}
+            {data_Show.map((element, index) => {
+              {
+                /* const { uni_ID } = data_Show; */
+              }
               return (
                 <>
                   <tr key={index}>

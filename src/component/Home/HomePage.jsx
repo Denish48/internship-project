@@ -27,8 +27,10 @@ const HomePage = () => {
       <Suspense
         fallback={
           <>
+          <div>
             <h1>loading.....</h1>
             <Spinner />
+            </div>
           </>
         }
       >
