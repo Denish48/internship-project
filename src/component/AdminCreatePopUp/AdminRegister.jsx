@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
+import { dt } from "../FireBase";
+import { addDoc, collection } from "firebase/firestore";
+
+
 
 const AdminRegister = () => {
     //set usestate for toggle the form:
@@ -7,6 +11,12 @@ const AdminRegister = () => {
     const [admin_Username, setAdmin_Username] = useState("");
     const [admin_Email, setAdmin_Email] = useState("");
     const [admin_Password, setAdmin_Password] = useState("");
+    const adds = collection(dt, "AdminRegister");
+
+
+    
+
+
     ///onClick so form will be shown:
     const show_form = () => {
         setAdd_page_Render(true);
@@ -22,7 +32,14 @@ const AdminRegister = () => {
         setAdmin_Username(admin_Username);
         setAdmin_Email(admin_Email)
         setAdmin_Password(admin_Password);
-        console.log(admin_Username,admin_Email,admin_Password);
+        // console.log(admin_Username, admin_Email, admin_Password);
+        const Add_Admin_Data = async () => {
+            await addDoc(adds, {
+                user_name: admin_Username,
+                email: admin_Email,
+                password: admin_Password
+            })
+        }
     };
 
     return (
@@ -52,7 +69,7 @@ const AdminRegister = () => {
                             <label htmlFor="E-mail">E-mail</label>
                             <input
                                 type="email"
-                                name="e-mail"
+                                name="email"
                                 id="e-mail"
                                 value={admin_Email}
                                 onChange={(e) => setAdmin_Email(e.target.value)}

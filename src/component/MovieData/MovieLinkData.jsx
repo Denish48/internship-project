@@ -76,7 +76,7 @@ const MovieLinkData = () => {
   //when site load first time call the function and show the data:
   useEffect(() => {
     movienamedata();
-  }, [All_Data_Handler]);
+  }, []);
 
   return (
     <>
@@ -178,9 +178,10 @@ const MovieLinkData = () => {
               <th>Delete Data</th>
             </tr>
             {data_Show.map((element, index) => {
+              const{uni_ID}=data_Show
               return (
                 <>
-                  <tr key={index}>
+                  <tr key={uni_ID}>
                     <td>{element.movie_Name}</td>
                     <td>{element.uni_ID}</td>
                     <td>
