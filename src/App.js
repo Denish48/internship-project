@@ -14,25 +14,23 @@ function App() {
   });
 
   return (
-    <>
-  
+    <div className="App">
       <Suspense
         fallback={
           <>
+            <h1>Loading....</h1>
             <Spinner />
           </>
         }
       >
-        <div className="App">
-          <NavBar />
-          <Routes>
-            <Route exact path="/" element={<HomePage />} />
-            <Route path="/AdminLogin" element={<AdminLogin />} />
-            <Route path="/AboutUs" element={<AboutUs />} />
-          </Routes>
-        </div>
+        <NavBar />
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/AdminLogin" element={<AdminLogin />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+        </Routes>
       </Suspense>
-    </>
+    </div>
   );
 }
 

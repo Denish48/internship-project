@@ -5,6 +5,7 @@ import { dt } from "../FireBase";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import "../MovieData/MovieLinkData.css";
 import { v4 as uuidv4 } from "uuid";
+import AdminRegister from "../AdminCreatePopUp/AdminRegister";
 
 const MovieLinkData = () => {
   //state for getinput data from form:
@@ -81,7 +82,7 @@ const MovieLinkData = () => {
     <>
       {/* button for add new admin user */}
       <div className="admin_button">
-        <button className="btn btn-success ">Add New Admin</button>
+        <AdminRegister />
       </div>
       <div className="data-file">
         <h2>Enter Movie Data</h2>
@@ -151,12 +152,17 @@ const MovieLinkData = () => {
               id="link_720P"
               required
               autoComplete="off"
+              placeholder="Enter 720p Download Link"
               class="form-control"
             />
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">
+            <button
+              calss="form-control"
+              className="btn btn-primary"
+              type="submit"
+            >
               Upload
             </button>
           </div>
