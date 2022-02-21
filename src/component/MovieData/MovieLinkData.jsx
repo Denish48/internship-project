@@ -80,6 +80,7 @@ const MovieLinkData = () => {
 
   return (
     <>
+
       {/* button for add new admin user */}
       <div className="admin_button">
         <AdminRegister />
@@ -158,10 +159,7 @@ const MovieLinkData = () => {
           </div>
 
           <div className="form-group">
-            <button
-              className="btn btn-primary"
-              type="submit"
-            >
+            <button className="btn btn-primary" type="submit">
               Upload
             </button>
           </div>
@@ -177,11 +175,11 @@ const MovieLinkData = () => {
               <th>Unique_ID</th>
               <th>Delete Data</th>
             </tr>
-            {data_Show.map((element, index) => {
-              const{uni_ID}=data_Show
+            {data_Show.map((element,index) => {
+              const { uni_ID } = data_Show;
               return (
                 <>
-                  <tr key={uni_ID}>
+                  <tr key={index}>
                     <td>{element.movie_Name}</td>
                     <td>{element.uni_ID}</td>
                     <td>

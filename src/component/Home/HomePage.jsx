@@ -36,8 +36,8 @@ const HomePage = () => {
           <Container>
             {data_Show.map((cur_ELE, index) => {
               return (
-                <div>
-                  <div className="maindiv" key={index}>
+                <div key={index}>
+                  <div className="maindiv" >
                     <div className="movie-image">
                       <img src={cur_ELE.image_link} />
                     </div>
