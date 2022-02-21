@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import "./AdminPage.css";
+// import { dt } from "../FireBase";
+// import { collection, getDocs } from "firebase/firestore";
 // import { useNavigate } from "react-router-dom";
 import MovieLinkData from "../MovieData/MovieLinkData";
 const AdminLogin = () => {
   //for redirect component:
   // const redirect = useNavigate();
+
   const [incPassword, setIncPassword] = useState("");
   //state for rendering other component:
   const [render_comp, setRender_comp] = useState(false);
 
+  // const adds = collection(dt, "AdminRegister");
+
+  // const [admin_data, setAdmin_data] = useState([])
+  // console.log(admin_data);
   //usestate for get value on change:
   const [user, setUser] = useState({
     password: "",
@@ -27,21 +34,39 @@ const AdminLogin = () => {
   const submit_Data = (e) => {
     e.preventDefault();
     console.log("user", user);
-    //check the condition for password match and redirect to other component:
 
-    if ((user?.password === "123" && user?.email === "denish@gmail.com") || (user?.password === "123" && user?.email === "bhautik@gmail.com")) {
+    // check the condition for password match and redirect to other component:
+
+    if (
+      (user?.password === "123" && user?.email === "denish@gmail.com") ||
+      (user?.password === "123" && user?.email === "bhautik@gmail.com")
+    ) {
       //set other state for conditional rendering:
       setRender_comp(true);
-    }
-    else if (user?.password === "") {
+    } else if (user?.password === "") {
       setIncPassword("Enter Password");
-    }
-    else if (user?.email === "") {
+    } else if (user?.email === "") {
       setIncPassword("Enter Email");
     } else {
       setIncPassword("You Are Not Admin Member");
     }
   };
+
+  // const GetAdminDetail = async () => {
+  //   const data = await getDocs(adds);
+  //   await setAdmin_data(data.docs.reverse().map((doc) => ({ ...doc.data() })));
+  //   console.log("this is fatching data",data);
+  // }
+
+  //   if (admin_data?.email === user.email) {
+  //     setRender_comp(true);
+  //   }
+  //   else {
+  //     setIncPassword("You Are Not Admin Member");
+  //   }
+  // useEffect(() => {
+  //   GetAdminDetail()
+  // }, [])
 
   return (
     <>
@@ -82,7 +107,9 @@ const AdminLogin = () => {
                   <span></span>
                   Submit
                 </a>
-                <button type="submit" onClick={submit_Data} hidden>submit</button>
+                <button type="submit" onClick={submit_Data} hidden>
+                  submit
+                </button>
               </form>
               <br />
               <h4 style={{ color: "skyblue" }}>{incPassword}</h4>
