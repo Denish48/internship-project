@@ -1,16 +1,15 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router";
 
 const AdminDetail = () => {
   const [admin_detail, setAdmin_detail] = useState(false);
-const redirect2=useNavigate()
-  
+  const redirect2 = useNavigate();
+
   const s_admin_detail = () => {
-      redirect2("/AdminAllData")
-    };
-    
-    
+    redirect2("/AdminAllData");
+  };
+
   return (
     <>
       {!admin_detail && (
@@ -18,7 +17,6 @@ const redirect2=useNavigate()
           <button onClick={s_admin_detail}>Admin Detail</button>
         </>
       )}
-      
     </>
   );
 };
