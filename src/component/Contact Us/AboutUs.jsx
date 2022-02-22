@@ -54,10 +54,10 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-          <div class="credits">
+          <div className="credits">
             inspired by
             <a
-              class="credits-link"
+              className="credits-link"
               href="https://www.elsner.com/"
               target="_blank"
             >

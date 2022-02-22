@@ -24,7 +24,7 @@ const AdminLogin = () => {
         console.log("login");
         redirect("/MovieLinkdata");
       } else {
-        console.log("faield");
+        console.log("failed");
         setError("You Are Not Admin Member");
       }
     });
