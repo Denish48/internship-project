@@ -38,3 +38,9 @@
     font-weight: bold;
     color: #009879;
 }
+.admin_detail
+{
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}

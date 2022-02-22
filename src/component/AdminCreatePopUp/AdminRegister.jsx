@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { dt } from "../FireBase";
 import { addDoc, collection } from "firebase/firestore";
-
+import "./AdminRegister.css"
 const AdminRegister = () => {
   //set usestate for toggle the form:
   const [add_page_Render, setAdd_page_Render] = useState(false);
@@ -45,9 +45,11 @@ const AdminRegister = () => {
   return (
     <>
       {!add_page_Render && (
+        <div>
         <button className="btn btn-success" onClick={show_form}>
           Add New Admin
         </button>
+        </div>
       )}
       {add_page_Render && (
         <div>

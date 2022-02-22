@@ -2,19 +2,12 @@ import React, { useState, useEffect } from "react";
 //import database from firebase file:
 import { dt } from "../FireBase";
 //import the required value from firestore
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  getDocs,
-  doc,
-} from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import "../MovieData/MovieLinkData.css";
 import { v4 as uuidv4 } from "uuid";
 import AdminRegister from "../AdminCreatePopUp/AdminRegister";
 import AdminDetail from "../ShowAdminData/AdminDetail";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-
+import MovieList from "../MovieLists/MovieList";
 const MovieLinkData = () => {
   //state for getinput data from form:
   const [screen_Link, setScreen_Link] = useState("");
@@ -28,7 +21,6 @@ const MovieLinkData = () => {
   );
 
   //store the databse data into this array:
-  const [data_Show, setData_Show] = useState([]);
 
   //variable create for database collection:
   const dtds = collection(dt, "AllMovieData");
@@ -73,25 +65,6 @@ const MovieLinkData = () => {
       setDown720P_Link("");
       setimg_Link("");
     }
-  };
-
-  //function for get data into database:
-  const movienamedata = async () => {
-    const data = await getDocs(dtds);
-    console.log(data);
-    await setData_Show(
-      data.docs.reverse().map((doc) => ({ ...doc.data(), id: doc.id }))
-    );
-  };
-  //when site load first time call the function and show the data:
-  useEffect(() => {
-    movienamedata();
-  }, []);
-
-  //for delete the data:
-  const DeleteData = async (id) => {
-    const d_id = doc(dt, "AllMovieData", id);
-    await deleteDoc(d_id);
   };
 
   return (
@@ -183,40 +156,9 @@ const MovieLinkData = () => {
           </div>
         </form>
       </div>
+
       <div>
-        <h2>Movie's List</h2>
-
-        <div className="table_content">
-          <table>
-            <tr>
-              <th>Movie Name</th>
-              <th>Unique_ID</th>
-              <th>Delete Data</th>
-            </tr>
-            {data_Show.map((element, index) => {
-              return (
-                <>
-                  <tr key={index}>
-                    <td>{element.movie_Name}</td>
-                    <td>{element.uni_ID}</td>
-                    <td>
-                      <button
-                        onClick={() => {
-                          DeleteData(element.id);
-                        }}
-                        className="btn btn-danger"
-                      >
-                        <DeleteForeverIcon />
-                      </button>
-                    </td>
-                  </tr>
-                </>
-              );
-            })}
-
-            {/* <tbody>, <thead> or <tfoot>  */}
-          </table>
-        </div>
+        <MovieList />
       </div>
     </>
   );
