@@ -86,6 +86,7 @@ const MovieLinkData = () => {
     movienamedata();
   }, []);
 
+  //for delete the data:
   const DeleteData = async (id) => {
     const uu = doc(dt, "AllMovieData", id);
     await deleteDoc(uu);
