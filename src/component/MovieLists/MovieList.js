@@ -34,11 +34,26 @@ const MovieList = () => {
   };
   return (
     <>
-      {!movie_list && <button onClick={show_list}>show movie list</button>}
+      {!movie_list && (
+        <>
+          <button className="btn btn-dark" onClick={show_list}>
+            show movie list
+          </button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </>
+      )}
       {movie_list && (
         <>
           <div>
-            <button onClick={hide_list}>Hide movie list</button>
+            <button className="btn btn-dark" onClick={hide_list}>
+              Hide movie list
+            </button>
             <h2>Movie's List</h2>
 
             <div className="table_content">

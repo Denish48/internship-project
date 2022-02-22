@@ -75,6 +75,7 @@ const AboutUs = () => {
                       placeholder="NAME"
                       value={viewer_Name}
                       onChange={(e) => setViewer_Name(e.target.value)}
+                      autoComplete="off"
                     />
                   </div>
                   <div className="app-form-group">
@@ -85,6 +86,7 @@ const AboutUs = () => {
                       placeholder="EMAIL"
                       value={viewer_Email}
                       onChange={(e) => setViewer_Email(e.target.value)}
+                      autoComplete="off"
                     />
                   </div>
                   <div className="app-form-group">
@@ -95,6 +97,7 @@ const AboutUs = () => {
                       value={viewer_Contact_No}
                       required
                       onChange={(e) => setViewer_Contact_No(e.target.value)}
+                      autoComplete="off"
                     />
                   </div>
                   <div className="app-form-group message">
@@ -105,6 +108,7 @@ const AboutUs = () => {
                       value={viewer_Message}
                       onChange={(e) => setViewer_Message(e.target.value)}
                       placeholder="MESSAGE"
+                      autoComplete="off"
                     />
                   </div>
                   <div className="app-form-group buttons">
