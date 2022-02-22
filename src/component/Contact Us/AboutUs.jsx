@@ -1,10 +1,41 @@
 import React, { useState } from "react";
 import "./AboutUS.css";
+import { dt } from "../FireBase";
+import { addDoc, collection } from "firebase/firestore";
+
 
 const AboutUs = () => {
   const [viewer_Name, setViewer_Name] = useState("")
   const [viewer_Email, setViewer_Email] = useState("")
   const [viewer_Contact_No, setViewer_Contact_No] = useState("")
+  const [viewer_Message, setViewer_Message] = useState("")
+
+  const dtds = collection(dt, "ContactUsData");
+
+  const Contact_US_Data_Handler = (e) => {
+    e.preventDefault();
+    setViewer_Name(viewer_Name)
+    setViewer_Email(viewer_Email)
+    setViewer_Contact_No(viewer_Contact_No)
+    setViewer_Message(viewer_Message)
+
+    const ContactData = async () => {
+      await addDoc(dtds, {
+        viewer_Name: viewer_Name,
+        viewer_Email: viewer_Email,
+        viewer_Contact: viewer_Contact_No,
+        viewer_Message: viewer_Message
+
+      })
+    }
+    if (ContactData()) {
+      setViewer_Name("")
+      setViewer_Email("")
+      setViewer_Contact_No("")
+      setViewer_Message("")
+    }
+  }
+
 
   return (
     <>
@@ -36,26 +67,27 @@ const AboutUs = () => {
               <div className="screen-body-item">
                 <div className="app-form">
                   <div className="app-form-group">
-                    <input className="app-form-control" placeholder="NAME" value={viewer_Name} onChange={(e) => setViewer_Name(e.target.value)} />
+                    <input className="app-form-control" name="viewer_Name" placeholder="NAME" value={viewer_Name} onChange={(e) => setViewer_Name(e.target.value)} />
                   </div>
                   <div className="app-form-group">
-                    <input className="app-form-control" placeholder="EMAIL" value={viewer_Email} onChange={(e) => setViewer_Email(e.target.value)}
+                    <input className="app-form-control" name="viewer_Email" placeholder="EMAIL" value={viewer_Email} onChange={(e) => setViewer_Email(e.target.value)}
                     />
                   </div>
                   <div className="app-form-group">
                     <input
                       className="app-form-control"
+                      name="viewer_Contact"
                       placeholder="CONTACT NO"
                       value={viewer_Contact_No}
                       onChange={(e) => setViewer_Contact_No(e.target.value)}
                     />
                   </div>
                   <div className="app-form-group message">
-                    <input className="app-form-control" placeholder="MESSAGE" />
+                    <input className="app-form-control" name="viewer_Message" value={viewer_Message} onChange={(e) => setViewer_Message(e.target.value)} placeholder="MESSAGE" />
                   </div>
                   <div className="app-form-group buttons">
                     <button className="app-form-button">CANCEL</button>
-                    <button className="app-form-button" onClick={ } >SEND</button>
+                    <button className="app-form-button" onClick={Contact_US_Data_Handler} >SEND</button>
                   </div>
                 </div>
               </div>
