@@ -175,7 +175,6 @@ const MovieLinkData = () => {
               <th>Delete Data</th>
             </tr>
             {data_Show.map((element, index) => {
-              
               return (
                 <>
                   <tr key={index}>
