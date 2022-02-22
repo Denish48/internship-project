@@ -2,6 +2,8 @@
 {
     justify-content: center;
     display: flex;
+    /* box-shadow: 5px 10px #888888;
+    box-shadow: 5px 10px; */
 }
 .styled-table {
     border-collapse: collapse;
@@ -19,6 +21,7 @@
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+   
 }
 .styled-table tbody tr {
     border-bottom: 1px solid #dddddd;

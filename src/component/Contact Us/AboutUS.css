@@ -217,9 +217,9 @@ input {
     margin-right: 12px;
   }
 
-  .app-title:after {
+  /* .app-title:after {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 600px) {
