@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AboutUS.css";
 
 const AboutUs = () => {
+  const [viewer_Name, setViewer_Name] = useState("")
+  const [viewer_Email, setViewer_Email] = useState("")
+  const [viewer_Contact_No, setViewer_Contact_No] = useState("")
+
   return (
     <>
       <div className="background">
@@ -32,15 +36,18 @@ const AboutUs = () => {
               <div className="screen-body-item">
                 <div className="app-form">
                   <div className="app-form-group">
-                    <input className="app-form-control" placeholder="NAME" />
+                    <input className="app-form-control" placeholder="NAME" value={viewer_Name} onChange={(e) => setViewer_Name(e.target.value)} />
                   </div>
                   <div className="app-form-group">
-                    <input className="app-form-control" placeholder="EMAIL" />
+                    <input className="app-form-control" placeholder="EMAIL" value={viewer_Email} onChange={(e) => setViewer_Email(e.target.value)}
+                    />
                   </div>
                   <div className="app-form-group">
                     <input
                       className="app-form-control"
                       placeholder="CONTACT NO"
+                      value={viewer_Contact_No}
+                      onChange={(e) => setViewer_Contact_No(e.target.value)}
                     />
                   </div>
                   <div className="app-form-group message">
@@ -48,7 +55,7 @@ const AboutUs = () => {
                   </div>
                   <div className="app-form-group buttons">
                     <button className="app-form-button">CANCEL</button>
-                    <button className="app-form-button">SEND</button>
+                    <button className="app-form-button" onClick={ } >SEND</button>
                   </div>
                 </div>
               </div>
