@@ -13,6 +13,7 @@ import "../MovieData/MovieLinkData.css";
 import { v4 as uuidv4 } from "uuid";
 import AdminRegister from "../AdminCreatePopUp/AdminRegister";
 import AdminDetail from "../ShowAdminData/AdminDetail";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 const MovieLinkData = () => {
   //state for getinput data from form:
@@ -100,8 +101,7 @@ const MovieLinkData = () => {
         <AdminRegister />
       </div>
       <div>
-      <AdminDetail />
-      
+        <AdminDetail />
       </div>
       <div className="data-file">
         <h2>Enter Movie Data</h2>
@@ -206,7 +206,7 @@ const MovieLinkData = () => {
                         }}
                         className="btn btn-danger"
                       >
-                        Delete
+                        <DeleteForeverIcon />
                       </button>
                     </td>
                   </tr>
