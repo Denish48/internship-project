@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 //import database from firebase file:
 import { dt } from "../FireBase";
 //import the required value from firestore
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  getDocs,
+  doc,
+} from "firebase/firestore";
 import "../MovieData/MovieLinkData.css";
 import { v4 as uuidv4 } from "uuid";
 import AdminRegister from "../AdminCreatePopUp/AdminRegister";
@@ -71,12 +77,19 @@ const MovieLinkData = () => {
   const movienamedata = async () => {
     const data = await getDocs(dtds);
     console.log(data);
-    await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })));
+    await setData_Show(
+      data.docs.reverse().map((doc) => ({ ...doc.data(), id: doc.id }))
+    );
   };
   //when site load first time call the function and show the data:
   useEffect(() => {
     movienamedata();
   }, []);
+
+  const DeleteData = async (id) => {
+    const uu = doc(dt, "AllMovieData", id);
+    await deleteDoc(uu);
+  };
 
   return (
     <>
@@ -181,7 +194,14 @@ const MovieLinkData = () => {
                     <td>{element.movie_Name}</td>
                     <td>{element.uni_ID}</td>
                     <td>
-                      <button className="btn btn-danger">Delete</button>
+                      <button
+                        onClick={() => {
+                          DeleteData(element.id);
+                        }}
+                        className="btn btn-danger"
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 </>
