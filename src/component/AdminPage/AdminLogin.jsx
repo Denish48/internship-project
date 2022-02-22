@@ -10,15 +10,17 @@ const AdminLogin = () => {
   const [error, setError] = useState();
   const [a_Email, setA_Email] = useState("");
   const [a_Password, setA_Password] = useState("");
+  const [a_Username, setA_Username] = useState("");
 
   //state for rendering other component:
 
-    const submitHandle = async (e) => {
+  const submitHandle = async (e) => {
     e.preventDefault();
     const q = query(
       collection(dt, "AdminRegister"),
       where("email", "==", a_Email),
-      where("password", "==", a_Password)
+      where("password", "==", a_Password),
+      where("user_name", "==", a_Username)
     );
     const docsSnap = await getDocs(q);
     docsSnap.forEach((doc) => {
@@ -37,7 +39,19 @@ const AdminLogin = () => {
       <div>
         <div className="login-box">
           <h2>Login</h2>
-          <form>
+          <form onSubmit={submitHandle}>
+            <div className="user-box">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value={a_Username}
+                onChange={(e) => setA_Username(e.target.value)}
+                autoComplete="off"
+                required
+              />
+              <label>Username</label>
+            </div>
             <div className="user-box">
               <input
                 type="text"
@@ -46,6 +60,7 @@ const AdminLogin = () => {
                 value={a_Email}
                 onChange={(e) => setA_Email(e.target.value)}
                 autoComplete="off"
+                required
               />
               <label>Email</label>
             </div>
@@ -62,8 +77,8 @@ const AdminLogin = () => {
               <label>Password</label>
             </div>
 
-            <button type="submit" onClick={submitHandle}>
-              submit
+            <button type="button" class="btn btn-light" onClick={submitHandle}>
+              Login
             </button>
           </form>
           <br />
