@@ -13,7 +13,7 @@ const AdminLogin = () => {
 
   //state for rendering other component:
 
-  const submitHandle = async (e) => {
+    const submitHandle = async (e) => {
     e.preventDefault();
     const q = query(
       collection(dt, "AdminRegister"),
