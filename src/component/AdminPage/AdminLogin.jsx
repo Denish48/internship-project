@@ -5,10 +5,12 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
   //for redirect component:
+
   const redirect = useNavigate();
   const [error, setError] = useState();
   const [a_Email, setA_Email] = useState("");
   const [a_Password, setA_Password] = useState("");
+
   //state for rendering other component:
 
   const submitHandle = async (e) => {
