@@ -13,7 +13,6 @@ const AdminLogin = () => {
 
   const submitHandle = async (e) => {
     e.preventDefault();
-    // let arr = []
     const q = query(
       collection(dt, "AdminRegister"),
       where("email", "==", a_Email),
