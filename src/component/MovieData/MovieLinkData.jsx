@@ -12,6 +12,7 @@ import {
 import "../MovieData/MovieLinkData.css";
 import { v4 as uuidv4 } from "uuid";
 import AdminRegister from "../AdminCreatePopUp/AdminRegister";
+import AdminDetail from "../ShowAdminData/AdminDetail";
 
 const MovieLinkData = () => {
   //state for getinput data from form:
@@ -88,8 +89,8 @@ const MovieLinkData = () => {
 
   //for delete the data:
   const DeleteData = async (id) => {
-    const uu = doc(dt, "AllMovieData", id);
-    await deleteDoc(uu);
+    const d_id = doc(dt, "AllMovieData", id);
+    await deleteDoc(d_id);
   };
 
   return (
@@ -97,6 +98,10 @@ const MovieLinkData = () => {
       {/* button for add new admin user */}
       <div className="admin_button">
         <AdminRegister />
+      </div>
+      <div>
+      <AdminDetail />
+      
       </div>
       <div className="data-file">
         <h2>Enter Movie Data</h2>
