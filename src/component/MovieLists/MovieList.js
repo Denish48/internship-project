@@ -70,7 +70,7 @@ const MovieList = () => {
                 return (
                   <>
                     <tbody>
-                      {ind % 2 == 0 ? (
+                      {ind % 2 === 0 ? (
                         <tr>
                           <td>{value.movie_Name}</td>
                           <td>{value.uni_ID}</td>

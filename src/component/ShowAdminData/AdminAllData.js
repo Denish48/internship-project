@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./AdminAllData.scss";
 
+
 const AdminAllData = () => {
   const [admin_data_show, setAdmin_data_show] = useState([]);
 
@@ -38,13 +39,13 @@ const AdminAllData = () => {
           {admin_data_show.map((value, ind) => {
             return (
               <>
-                <tbody>
-                  {ind % 2 == 0 ? (
+                <tbody key={ind}>
+                  {ind % 2 === 0 ? (
                     <tr>
                       <td>{value.user_name}</td>
                       <td>{value.email}</td>
                       <td>{value.password}</td>
-                      <td>
+                      <td className="delete_btn">
                         <button className="btn btn-warning"><DeleteForeverIcon />delete</button>
                       </td>
                     </tr>
@@ -53,7 +54,7 @@ const AdminAllData = () => {
                       <td>{value.user_name}</td>
                       <td>{value.email}</td>
                       <td>{value.password}</td>
-                      <td>
+                      <td className="delete_btn">
                         <button className="btn btn-warning"><DeleteForeverIcon />delete</button>
                       </td>
                     </tr>
