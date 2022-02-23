@@ -30,8 +30,12 @@
   padding: 25px 16px;
 }
 .bottom-header nav.navbar .main-navigation .nav-link:hover {
-  background-color: #cc1616;
-  color: #0a58ca;
+  /* background-color: #c46b1e; */
+  color: #db4e4e;
+}
+.bottom-header nav.navbar .main-navigation .nav-link:active {
+  /* background-color: #c46b1e; */
+  color: #e2a851;
 }
 
 /* .bottom-header
