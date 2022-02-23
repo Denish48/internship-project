@@ -52,7 +52,9 @@ const MovieList = () => {
 
       {movie_list && (
         <>
-          <h1>hello</h1>
+          <button className="btn btn-dark" onClick={hide_list}>
+            Hide movie list
+          </button>
           <div className="table-users">
             <div className="header">Movie List</div>
 
