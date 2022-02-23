@@ -37,7 +37,7 @@ const MovieList = () => {
     <>
       {!movie_list && (
         <>
-          <button className="btn btn-dark" onClick={show_list}>
+          <button className="btn btn-warning" onClick={show_list}>
             show movie list
           </button>
           <br />
@@ -52,7 +52,7 @@ const MovieList = () => {
 
       {movie_list && (
         <>
-          <button className="btn btn-dark" onClick={hide_list}>
+          <button className="btn btn-warning" onClick={hide_list}>
             Hide movie list
           </button>
           <div className="table-users">

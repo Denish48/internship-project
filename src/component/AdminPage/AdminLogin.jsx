@@ -77,7 +77,7 @@ const AdminLogin = () => {
               <label>Password</label>
             </div>
 
-            <button type="button" class="btn btn-light" onClick={submitHandle}>
+            <button type="submit" class="admin_login_buttoon" onClick={submitHandle}>
               Login
             </button>
           </form>

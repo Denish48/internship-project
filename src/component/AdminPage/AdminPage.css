@@ -164,3 +164,18 @@
     bottom: 100%;
   }
 }
+.admin_login_buttoon
+{
+  background-color: black;
+  border: 2px solid rgb(255, 255, 255);
+  font-size: 20px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  color: white;
+  
+}
+.admin_login_buttoon:hover{
+  background-color: orange;
+  color: white;
+  text-transform: uppercase;
+}
