@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { dt } from "../FireBase";
 import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import "./MovieList.scss";
 
 const MovieList = () => {
   const [movie_list, setMovie_list] = useState(false);
@@ -48,45 +49,63 @@ const MovieList = () => {
           <br />
         </>
       )}
+
       {movie_list && (
         <>
-          <div>
-            <button className="btn btn-dark" onClick={hide_list}>
-              Hide movie list
-            </button>
-            <h2>Movie's List</h2>
+          <h1>hello</h1>
+          <div className="table-users">
+            <div className="header">Movie List</div>
 
-            <div className="table_content">
-              <table>
+            <table cellspacing="0">
+              <thead>
                 <tr>
-                  <th>Movie Name</th>
-                  <th>Unique_ID</th>
+                  <th>Username</th>
+                  <th>Email</th>
                   <th>Delete Data</th>
                 </tr>
-                {all_list_data.map((element, index) => {
-                  return (
-                    <>
-                      <tr key={index}>
-                        <td>{element.movie_Name}</td>
-                        <td>{element.uni_ID}</td>
-                        <td>
-                          <button
-                            onClick={() => {
-                              DeleteData(element.id);
-                            }}
-                            className="btn btn-danger"
-                          >
-                            <DeleteForeverIcon />
-                          </button>
-                        </td>
-                      </tr>
-                    </>
-                  );
-                })}
-
-                {/* <tbody>, <thead> or <tfoot>  */}
-              </table>
-            </div>
+              </thead>
+              {all_list_data.map((value, ind) => {
+                return (
+                  <>
+                    <tbody>
+                      {ind % 2 == 0 ? (
+                        <tr>
+                          <td>{value.movie_Name}</td>
+                          <td>{value.uni_ID}</td>
+                          <td>
+                            <button
+                              onClick={() => {
+                                DeleteData(value.id);
+                              }}
+                              className="btn btn-warning"
+                            >
+                              <DeleteForeverIcon />
+                              delete
+                            </button>
+                          </td>
+                        </tr>
+                      ) : (
+                        <tr>
+                          <td>{value.movie_Name}</td>
+                          <td>{value.uni_ID}</td>
+                          <td>
+                            <button
+                              onClick={() => {
+                                DeleteData(value.id);
+                              }}
+                              className="btn btn-warning"
+                            >
+                              <DeleteForeverIcon />
+                              delete
+                            </button>
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </>
+                );
+              })}
+            </table>
           </div>
         </>
       )}

@@ -1,0 +1,199 @@
+//html code:
+<div className="flex-container">
+  <div className="content-container">
+    <div className="form-container">
+      <form onSubmit={All_Data_Handler}>
+        <h1>
+         ENTER MOVIE DATA
+        </h1>
+        <br>
+        <br>
+        <input type="text" value={uni_ID} hidden name="uni_ID" id="uni_ID" />
+        <br />
+        <span className="subtitle">ENTER MOVIE NAME:</span>
+        <br>
+        <input type="text"
+              name="movie_Name"
+              id="movie_Name"
+              value={movie_Name}
+              onChange={(e) => setMovie_Name(e.target.value)}
+              required
+              autoComplete="off"
+              class="form-control" >
+        <br>
+        <span className="subtitle">ENTER IMG LINK:</span>
+        <br>
+        <input type="text"
+              value={img_Link}
+              onChange={(e) => setimg_Link(e.target.value)}
+              name="image_link"
+              id="img_link"
+              required
+              autoComplete="off"
+              class="form-control">
+        <br>
+        <span className="subtitle">ENTER SCREENSHOT LNK:</span>
+        <br>
+        <input 
+         type="text"
+              value={screen_Link}
+              onChange={(e) => setScreen_Link(e.target.value)}
+              name="screenshot_link"
+              id="screenshot_link"
+              required
+              autoComplete="off"
+              class="form-control">
+<br />
+              <span className="subtitle">ENTER 480P LINK:</span>
+        <br>
+        <input 
+        type="text"
+              value={down480P_Link}
+              onChange={(e) => setDown480P_Link(e.target.value)}
+              name="link_480P"
+              id="link_480P"
+              required
+              autoComplete="off"
+              class="form-control">
+        <br>
+        <span className="subtitle">ENTER 720P LINK:</span>
+        <br>
+        <input 
+        type="text"
+              value={down720P_Link}
+              onChange={(e) => setDown720P_Link(e.target.value)}
+              name="link_720P"
+              id="link_720P"
+              required
+              autoComplete="off"
+              placeholder="Enter 720p Download Link"
+              class="form-control"
+        <br>
+        <br><br>
+        <input type="submit" value="SUBMIT" className="submit-btn">
+      </form>
+    </div>
+  </div>
+</div>
+
+//css code:
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #121212; /* fallback for old browsers */
+  overflow-x: hidden;
+
+  height: 100%;
+
+  /* code to make all text unselectable */
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* Disables selector ring */
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+}
+
+/* ########################################################## */
+
+h1 {
+  color: white;
+
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.flex-container {
+  width: 100vw;
+
+  margin-top: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container {
+  width: 500px;
+  height: 350px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 500px;
+  height: 350px;
+
+  margin-top: 5px;
+  padding-top: 20px;
+
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  background: #1f1f1f;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
+}
+
+.subtitle {
+  font-size: 11px;
+
+  color: rgba(177, 177, 177, 0.3);
+}
+
+input {
+  border: none;
+  border-bottom: solid rgb(143, 143, 143) 1px;
+
+  margin-bottom: 30px;
+
+  background: none;
+  color: rgba(255, 255, 255, 0.555);
+
+  height: 35px;
+  width: 300px;
+}
+
+.submit-btn {
+  cursor: pointer;
+
+  border: none;
+  border-radius: 8px;
+
+  box-shadow: 2px 2px 7px #38d39f70;
+
+  background: #38d39f;
+  color: rgba(255, 255, 255, 0.8);
+
+  width: 80px;
+
+  transition: all 1s;
+}
+
+.submit-btn:hover {
+  color: rgb(255, 255, 255);
+
+  box-shadow: none;
+}
