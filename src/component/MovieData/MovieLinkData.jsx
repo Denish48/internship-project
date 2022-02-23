@@ -76,7 +76,7 @@ const MovieLinkData = () => {
       <div className="admin_button">
         <AdminRegister />
       </div>
-      <div>
+      <div className="admin_data">
         <AdminDetail />
       </div>
       <div className="data-file">

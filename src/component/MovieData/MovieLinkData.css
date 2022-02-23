@@ -69,3 +69,8 @@ td {
   background-color: #a55c1b;
   color: white;
 }
+.admin_data
+{
+  float: right !important;
+  margin-right: 10px;
+}
