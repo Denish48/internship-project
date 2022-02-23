@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { dt } from "../FireBase";
 import { collection, getDocs } from "firebase/firestore";
-import "./AdminAllData.css";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import "./demo.scss";
+import "./AdminAllData.scss";
 
 const AdminAllData = () => {
   const [admin_data_show, setAdmin_data_show] = useState([]);
