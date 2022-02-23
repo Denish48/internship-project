@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { dt } from "../FireBase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./AdminAllData.scss";
-
 
 const AdminAllData = () => {
   const [admin_data_show, setAdmin_data_show] = useState([]);
@@ -21,9 +20,13 @@ const AdminAllData = () => {
   useEffect(() => {
     admindata_fetch();
   }, []);
+  //delete admin data
+  const deleteadmindata = async (id) => {
+    const a_id = doc(dt, "AdminRegister", id);
+    await deleteDoc(a_id);
+  };
   return (
     <>
-      
       <div className="table-users">
         <div className="header">Admin Data</div>
 
@@ -46,7 +49,15 @@ const AdminAllData = () => {
                       <td>{value.email}</td>
                       <td>{value.password}</td>
                       <td className="delete_btn">
-                        <button className="btn btn-warning"><DeleteForeverIcon />delete</button>
+                        <button
+                          onClick={() => {
+                            deleteadmindata(value.id);
+                          }}
+                          className="btn btn-warning"
+                        >
+                          <DeleteForeverIcon />
+                          delete
+                        </button>
                       </td>
                     </tr>
                   ) : (
@@ -55,7 +66,15 @@ const AdminAllData = () => {
                       <td>{value.email}</td>
                       <td>{value.password}</td>
                       <td className="delete_btn">
-                        <button className="btn btn-warning"><DeleteForeverIcon />delete</button>
+                        <button
+                          onClick={() => {
+                            deleteadmindata(value.id);
+                          }}
+                          className="btn btn-warning"
+                        >
+                          <DeleteForeverIcon />
+                          delete
+                        </button>
                       </td>
                     </tr>
                   )}
