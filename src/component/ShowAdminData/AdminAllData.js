@@ -3,6 +3,7 @@ import { dt } from "../FireBase";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./AdminAllData.scss";
+import EditIcon from "@mui/icons-material/Edit";
 
 const AdminAllData = () => {
   const [admin_data_show, setAdmin_data_show] = useState([]);
@@ -37,29 +38,32 @@ const AdminAllData = () => {
               <th>Email</th>
               <th>Password</th>
               <th>Delete Data</th>
+              <th>Update Data</th>
             </tr>
           </thead>
           {admin_data_show.map((value, ind) => {
             return (
               <>
                 <tbody key={ind}>
-                    <tr>
-                      <td>{value.user_name}</td>
-                      <td>{value.email}</td>
-                      <td>{value.password}</td>
-                      <td className="delete_btn">
-                        <button
-                          onClick={() => {
-                            deleteadmindata(value.id);
-                          }}
-                          className="btn btn-warning"
-                        >
-                          <DeleteForeverIcon />
-                          delete
-                        </button>
-                      </td>
-                    </tr>
+                  <tr>
+                    <td>{value.user_name}</td>
+                    <td>{value.email}</td>
+                    <td>{value.password}</td>
+                    <td className="delete_btn">
+                      <button
+                        onClick={() => {
+                          deleteadmindata(value.id);
+                        }}
+                        className="btn btn-warning"
+                      >
+                        <DeleteForeverIcon />
+                        delete
+                      </button>
+                    </td>
                   
+                    <td><button className="btn btn-primary"> <EditIcon />Update</button></td>
+                   
+                  </tr>
                 </tbody>
               </>
             );

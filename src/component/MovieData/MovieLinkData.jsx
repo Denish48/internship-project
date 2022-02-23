@@ -162,8 +162,12 @@ const MovieLinkData = () => {
       </div>
 
       <div>
-        <MovieList />
+        <MovieList name={setMovie_Name} />
       </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </>
   );
 };
