@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { dt } from "../FireBase";
-import { collection, deleteDoc, getDocs, doc, updateDoc } from "firebase/firestore";
+import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import "./MovieList.scss";
@@ -36,19 +36,11 @@ const MovieList = () => {
   };
   //this state and function for update the value in given table:
 
-
-  const [moviedata, setMoviedata] = useState(false)
+  const [moviedata, setMoviedata] = useState(false);
 
   const MovieDataUpdate = () => {
- 
-   
-
-    setMoviedata(true)
-    
-   
-      
-   
-  }
+    setMoviedata(true);
+  };
   return (
     <>
       {!movie_list && (
@@ -56,7 +48,6 @@ const MovieList = () => {
           <button className="btn btn-warning" onClick={show_list}>
             show movie list
           </button>
-          
         </>
       )}
 
@@ -80,35 +71,38 @@ const MovieList = () => {
               {all_list_data.map((value, ind) => {
                 return (
                   <>
-                    <tbody  >
-                        <tr >
-                          {/* <td>{value.movie_Name}</td> */}
-                          {
-                            moviedata ? (<td><input type="text" /></td>) : (<td>{value.movie_Name}</td>)
-                          }
-                          <td>{value.uni_ID}</td>
+                    <tbody>
+                      <tr>
+                        {/* <td>{value.movie_Name}</td> */}
+                        {moviedata ? (
                           <td>
-                            <button
-                              onClick={() => {
-                                DeleteData(value.id);
-                              }}
-                              className="btn btn-warning"
-                            >
-                              <DeleteForeverIcon />
-                              delete
-                            </button>
+                            <input type="text" value={value.movie_Name} />
                           </td>
-                          <td>
-                            <button number={ind}
-                              className="btn btn-primary"
-                              onClick={MovieDataUpdate}
-                            >
-                              <EditIcon />
-                              Update
-                            </button>
-                          </td>
-                        </tr>
-                     
+                        ) : (
+                          <td>{value.movie_Name}</td>
+                        )}
+                        <td>{value.uni_ID}</td>
+                        <td>
+                          <button
+                            onClick={() => {
+                              DeleteData(value.id);
+                            }}
+                            className="btn btn-warning"
+                          >
+                            <DeleteForeverIcon />
+                            delete
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            className="btn btn-primary"
+                            onClick={MovieDataUpdate}
+                          >
+                            <EditIcon />
+                            Update
+                          </button>
+                        </td>
+                      </tr>
                     </tbody>
                   </>
                 );
