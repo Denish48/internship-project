@@ -43,7 +43,6 @@ const AdminAllData = () => {
             return (
               <>
                 <tbody key={ind}>
-                  {ind % 2 === 0 ? (
                     <tr>
                       <td>{value.user_name}</td>
                       <td>{value.email}</td>
@@ -60,24 +59,7 @@ const AdminAllData = () => {
                         </button>
                       </td>
                     </tr>
-                  ) : (
-                    <tr>
-                      <td>{value.user_name}</td>
-                      <td>{value.email}</td>
-                      <td>{value.password}</td>
-                      <td className="delete_btn">
-                        <button
-                          onClick={() => {
-                            deleteadmindata(value.id);
-                          }}
-                          className="btn btn-warning"
-                        >
-                          <DeleteForeverIcon />
-                          delete
-                        </button>
-                      </td>
-                    </tr>
-                  )}
+                  
                 </tbody>
               </>
             );
