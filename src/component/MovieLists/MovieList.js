@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { dt } from "../FireBase";
 import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import EditIcon from "@mui/icons-material/Edit";
 import "./MovieList.scss";
 
 const MovieList = () => {
@@ -33,6 +34,12 @@ const MovieList = () => {
     const d_id = doc(dt, "AllMovieData", id);
     await deleteDoc(d_id);
   };
+
+  const MovieDataUpdate=()=>
+  {
+
+
+  }
   return (
     <>
       {!movie_list && (
@@ -64,6 +71,7 @@ const MovieList = () => {
                   <th>Username</th>
                   <th>Email</th>
                   <th>Delete Data</th>
+                  <th>Update Data</th>
                 </tr>
               </thead>
               {all_list_data.map((value, ind) => {
@@ -85,6 +93,15 @@ const MovieList = () => {
                               delete
                             </button>
                           </td>
+                          <td>
+                            <button
+                              className="btn btn-primary"
+                              onClick={MovieDataUpdate}
+                            >
+                              <EditIcon />
+                              Update
+                            </button>
+                          </td>
                         </tr>
                       ) : (
                         <tr>
@@ -99,6 +116,15 @@ const MovieList = () => {
                             >
                               <DeleteForeverIcon />
                               delete
+                            </button>
+                          </td>
+                          <td>
+                            <button
+                              className="btn btn-primary"
+                              onClick={MovieDataUpdate}
+                            >
+                              <EditIcon />
+                              Update
                             </button>
                           </td>
                         </tr>
