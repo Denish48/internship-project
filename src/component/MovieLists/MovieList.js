@@ -61,7 +61,6 @@ const MovieList = () => {
                   <th>Movie</th>
                   <th>unique_id</th>
                   <th>Delete Data</th>
-
                 </tr>
               </thead>
               {all_list_data.map((value, ind) => {

@@ -60,9 +60,13 @@ const AdminAllData = () => {
                         delete
                       </button>
                     </td>
-                  
-                    <td><button className="btn btn-primary"> <EditIcon />Update</button></td>
-                   
+
+                    <td>
+                      <button className="btn btn-primary">
+                        <EditIcon />
+                        Update
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </>
