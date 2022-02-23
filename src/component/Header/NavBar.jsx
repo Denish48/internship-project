@@ -5,7 +5,7 @@ import SupervisorAccountTwoToneIcon from "@mui/icons-material/SupervisorAccountT
 import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
 import { Link } from "react-router-dom";
 import "../Header/NavBar.css";
-
+import "./demo.css"
 const NavBar = () => {
   return (
     <>
@@ -31,6 +31,7 @@ const NavBar = () => {
           </Navbar>
         </Container>
       </div>
+    
     </>
   );
 };

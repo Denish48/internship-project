@@ -8,6 +8,9 @@ import { v4 as uuidv4 } from "uuid";
 import AdminRegister from "../AdminCreatePopUp/AdminRegister";
 import AdminDetail from "../ShowAdminData/AdminDetail";
 import MovieList from "../MovieLists/MovieList";
+import "./MovieLinkData.css";
+
+
 const MovieLinkData = () => {
   //state for getinput data from form:
   const [screen_Link, setScreen_Link] = useState("");
@@ -78,6 +81,7 @@ const MovieLinkData = () => {
       </div>
       <div className="data-file">
         <h2>Enter Movie Data</h2>
+
         <form onSubmit={All_Data_Handler}>
           <input type="text" value={uni_ID} hidden name="uni_ID" id="uni_ID" />
           <div className="img_file_input form-group">
@@ -150,7 +154,7 @@ const MovieLinkData = () => {
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">
+            <button className="add_data_btn" type="submit">
               Upload
             </button>
           </div>

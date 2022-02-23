@@ -52,7 +52,7 @@ const AdminRegister = () => {
         </div>
       )}
       {add_page_Render && (
-        <div>
+        <div className="admin_main_div">
           <h1>Register</h1>
           <Container>
             <form onSubmit={New_Admin_Handler}>
