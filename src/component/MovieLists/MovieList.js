@@ -34,11 +34,12 @@ const MovieList = () => {
     const d_id = doc(dt, "AllMovieData", id);
     await deleteDoc(d_id);
   };
+  //this state and function for update the value in given table:
 
-  const MovieDataUpdate=()=>
-  {
+  const [moviedata, setmoviedata] = useState(false)
 
-
+  const MovieDataUpdate = () => {
+    setmoviedata(true)
   }
   return (
     <>
@@ -68,8 +69,8 @@ const MovieList = () => {
             <table cellspacing="0">
               <thead>
                 <tr>
-                  <th>Username</th>
-                  <th>Email</th>
+                  <th>Movie</th>
+                  <th>unique_id</th>
                   <th>Delete Data</th>
                   <th>Update Data</th>
                 </tr>
@@ -80,7 +81,10 @@ const MovieList = () => {
                     <tbody>
                       {ind % 2 === 0 ? (
                         <tr>
-                          <td>{value.movie_Name}</td>
+                          {/* <td>{value.movie_Name}</td> */}
+                          {
+                            moviedata ? (<td><input type="text" /></td>) : (<td>{value.movie_Name}</td>)
+                          }
                           <td>{value.uni_ID}</td>
                           <td>
                             <button
