@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useNavigate } from "react-router";
-import "./AdminAllData.css"
+import "./AdminAllData.css";
 
 const AdminDetail = () => {
   const [admin_detail, setAdmin_detail] = useState(false);
@@ -9,14 +9,17 @@ const AdminDetail = () => {
   console.log(setAdmin_detail);
 
   const s_admin_detail = () => {
-    redirect2("/AdminAllData");
+    redirect2("/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54");
+    window.history.replaceState(null, null, "/");
   };
 
   return (
     <>
       {!admin_detail && (
         <div className="admin_detail">
-          <button className="btn btn-success" onClick={s_admin_detail}>Admin Detail</button>
+          <button className="btn btn-success" onClick={s_admin_detail}>
+            Admin Detail
+          </button>
         </div>
       )}
     </>

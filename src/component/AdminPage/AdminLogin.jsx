@@ -7,7 +7,7 @@ const AdminLogin = () => {
   //for redirect component:
 
   const redirect = useNavigate();
-  
+
   const [error, setError] = useState();
   const [a_Email, setA_Email] = useState("");
   const [a_Password, setA_Password] = useState("");
@@ -27,7 +27,10 @@ const AdminLogin = () => {
     docsSnap.forEach((doc) => {
       if (doc.exists()) {
         console.log("login");
-        redirect("/MovieLinkdata");
+        redirect("/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg");
+        window.history.replaceState(null, null, "/");
+
+        
       } else {
         console.log("failed");
         setError("You Are Not Admin Member");
@@ -78,7 +81,11 @@ const AdminLogin = () => {
               <label>Password</label>
             </div>
 
-            <button type="submit" class="admin_login_buttoon" onClick={submitHandle}>
+            <button
+              type="submit"
+              class="admin_login_buttoon"
+              onClick={submitHandle}
+            >
               Login
             </button>
           </form>

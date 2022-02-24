@@ -67,6 +67,8 @@ const MovieLinkData = () => {
       setDown480P_Link("");
       setDown720P_Link("");
       setimg_Link("");
+      window.history.replaceState(null, null, "/");
+
     }
   };
 

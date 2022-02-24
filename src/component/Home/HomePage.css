@@ -20,7 +20,7 @@
   display: inline-block;
   transition: all 1s cubic-bezier(0.175, 0.885, 0, 1);
   text-decoration: none !important;
-  color: #055160 !important;
+  color: #f7f8f8 !important;
   font-size: 15px;
 }
 .maindiv {
@@ -42,7 +42,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #a5b1c2;
+  background-color: #6b3302;
   padding: 15px 0;
 }
 .maindiv .main-text p {
@@ -50,11 +50,11 @@
   text-transform: capitalize;
   margin-bottom: 8px;
   color: #fff;
-  color: black !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 .maindiv .main-text a:hover {
-  color: rgb(16, 233, 222);
+  color: rgb(249, 250, 250);
   color: red !important;
 }
 

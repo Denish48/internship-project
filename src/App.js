@@ -6,13 +6,15 @@ import { Routes, Route } from "react-router-dom";
 import Spinner from "./component/Spinner/Spinner";
 import MovieLinkData from "./component/MovieData/MovieLinkData";
 import AdminAllData from "./component/ShowAdminData/AdminAllData";
+import ErrorPage from "./component/ErrorPage/ErrorPage";
 // import NavBar from "./component/Header/NavBar";
 const HomePage = React.lazy(() => import("./component/Home/HomePage")); // Lazy-loaded
 const NavBar = React.lazy(() => import("./component/Header/NavBar"));
-
 function App() {
   useEffect(() => {
     document.title = "MoviesDownload";
+    window.history.replaceState(null, null, "/");
+
   });
 
   return (
@@ -30,8 +32,9 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/AdminLogin" element={<AdminLogin />} />
           <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/MovieLinkData" element={<MovieLinkData />} />
-          <Route path="/AdminAllData" element={<AdminAllData />} />
+          <Route exact path="/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg" element={<MovieLinkData />} />
+          <Route exact path="/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54" element={<AdminAllData />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
     </div>

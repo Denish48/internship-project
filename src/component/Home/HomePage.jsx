@@ -18,6 +18,8 @@ const HomePage = () => {
     const data = await getDocs(dtds);
     console.log(data);
     await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })));
+    //clear the browser history:
+    window.history.replaceState(null, null, "/");
   };
   //when site load first time call the function and show the data:
   useEffect(() => {
@@ -39,7 +41,7 @@ const HomePage = () => {
     }
   };
   console.log(search);
-//back button onclick function:
+  //back button onclick function:
   const search_back = () => {
     setMovie_flag(false);
   };
@@ -127,8 +129,8 @@ const HomePage = () => {
             {data_Show
               .filter(
                 (item) =>
-                  item.movie_Name.toLowerCase().replace(/\s+/g, '') ==
-                  search.toLowerCase().replace(/\s+/g, '')
+                  item.movie_Name.toLowerCase().replace(/\s+/g, "") ==
+                  search.toLowerCase().replace(/\s+/g, "")
               )
               .map((cur_ELE, index) => {
                 return (

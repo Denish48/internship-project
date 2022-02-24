@@ -26,6 +26,8 @@ const AdminRegister = () => {
     setAdmin_Username(admin_Username);
     setAdmin_Email(admin_Email);
     setAdmin_Password(admin_Password);
+    window.history.replaceState(null, null, "/");
+
     // console.log(admin_Username, admin_Email, admin_Password);
 
     const Add_Admin_Data = async () => {
