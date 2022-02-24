@@ -1,11 +1,11 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, useRef } from "react";
 import { dt } from "../FireBase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import "./HomePage.css";
 import { Container } from "react-bootstrap";
 import Spinner from "../Spinner/Spinner";
 import SearchIcon from "@mui/icons-material/Search";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const HomePage = () => {
   const [data_Show, setData_Show] = useState([]);
   //let variable for collect the data from database:
@@ -24,23 +24,32 @@ const HomePage = () => {
   }, []);
 
   const [search, setSearch] = useState("");
-  const [movie_flag, setMovie_flag] = useState(false);
+  const [movie_flag, setMovie_flag] = useState();
 
-  const searching = async () => {
-    console.log(data_Show, "dataShow", search);
-    const result = data_Show.filter(
-      (item) => item.movie_Name.toLowerCase() == search.toLowerCase()
-    );
-    console.log(result, "result");
-    setMovie_flag(true);
+  const get_focus = useRef();
+  const searching = () => {
+    // console.log(data_Show, "dataShow", search);
+    // const result = data_Show.filter(
+    //   (item) => item.movie_Name.toLowerCase() == search.toLowerCase()
+    // );
+    // console.log(result, "result");
+
+    if (search === "") {
+      get_focus.current.focus();
+    } else {
+      setMovie_flag(true);
+    }
   };
   console.log(search);
+
+  const search_back = () => {
+    setMovie_flag(false);
+  };
 
   return (
     <>
       {!movie_flag && (
         <>
-          <h1>main</h1>
           <Suspense
             fallback={
               <>
@@ -53,6 +62,8 @@ const HomePage = () => {
           >
             <br />
             <input
+              ref={get_focus}
+              placeholder="Search Here"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -89,7 +100,6 @@ const HomePage = () => {
       )}
       {movie_flag && (
         <>
-          <h1>main</h1>
           <Suspense
             fallback={
               <>
@@ -110,29 +120,41 @@ const HomePage = () => {
               <SearchIcon />
             </button>
             <br />
-            <div className="movie-collection">
-              <Container>
-                {result.map((cur_ELE, index) => {
-                  return (
-                    <div key={index}>
-                      <div className="maindiv">
-                        <div className="movie-image">
-                          <img src={cur_ELE.image_link} />
-                        </div>
-                        <div className="main-text">
-                          <p style={{ fontWeight: "bold" }}>
-                            {cur_ELE.movie_Name}
-                          </p>
-                          <a href={cur_ELE.screenshot_link}>Screenshot</a>
-                          <a href={cur_ELE.link_480P}>480P</a>
-                          <a href={cur_ELE.link_720P}>720P</a>
+            <br />
+            <button className="btn btn-primary" onClick={search_back}>
+              <ArrowBackIcon />
+              Back
+            </button>
+
+            {data_Show
+              .filter(
+                (item) =>
+                  item.movie_Name.trim().toLowerCase() ==
+                  search.trim().toLowerCase()
+              )
+              .map((cur_ELE, index) => {
+                return (
+                  <div className="movie-collection">
+                    <Container>
+                      <div key={index}>
+                        <div className="maindiv">
+                          <div className="movie-image">
+                            <img src={cur_ELE.image_link} />
+                          </div>
+                          <div className="main-text">
+                            <p style={{ fontWeight: "bold" }}>
+                              {cur_ELE.movie_Name}
+                            </p>
+                            <a href={cur_ELE.screenshot_link}>Screenshot</a>
+                            <a href={cur_ELE.link_480P}>480P</a>
+                            <a href={cur_ELE.link_720P}>720P</a>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </Container>
-            </div>
+                    </Container>
+                  </div>
+                );
+              })}
           </Suspense>
         </>
       )}
