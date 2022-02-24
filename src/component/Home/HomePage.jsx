@@ -6,6 +6,7 @@ import { Container } from "react-bootstrap";
 import Spinner from "../Spinner/Spinner";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 const HomePage = () => {
   const [data_Show, setData_Show] = useState([]);
   //let variable for collect the data from database:
@@ -23,17 +24,14 @@ const HomePage = () => {
     showdata();
   }, []);
 
+  //set state for get  searchbar value:
   const [search, setSearch] = useState("");
+  //set state for conditional rendering:
   const [movie_flag, setMovie_flag] = useState();
-
+  //use useRef for focus on searchbar:
   const get_focus = useRef();
+  //search button onclick function:
   const searching = () => {
-    // console.log(data_Show, "dataShow", search);
-    // const result = data_Show.filter(
-    //   (item) => item.movie_Name.toLowerCase() == search.toLowerCase()
-    // );
-    // console.log(result, "result");
-
     if (search === "") {
       get_focus.current.focus();
     } else {
@@ -41,7 +39,7 @@ const HomePage = () => {
     }
   };
   console.log(search);
-
+//back button onclick function:
   const search_back = () => {
     setMovie_flag(false);
   };
@@ -129,8 +127,8 @@ const HomePage = () => {
             {data_Show
               .filter(
                 (item) =>
-                  item.movie_Name.trim().toLowerCase() ==
-                  search.trim().toLowerCase()
+                  item.movie_Name.toLowerCase().replace(/\s+/g, '') ==
+                  search.toLowerCase().replace(/\s+/g, '')
               )
               .map((cur_ELE, index) => {
                 return (
