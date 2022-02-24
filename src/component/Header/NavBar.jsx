@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Navbar, Container, NavLink } from "react-bootstrap";
 import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import SupervisorAccountTwoToneIcon from "@mui/icons-material/SupervisorAccountTwoTone";
@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import "../Header/NavBar.css";
 import "./demo.css"
 const NavBar = () => {
+
+
   return (
     <>
       <div className="bottom-header">
@@ -27,11 +29,12 @@ const NavBar = () => {
               <NavLink as={Link} to="/AdminLogin">
                 <SupervisorAccountTwoToneIcon /> admin
               </NavLink>
+              
             </div>
           </Navbar>
         </Container>
       </div>
-    
+
     </>
   );
 };
