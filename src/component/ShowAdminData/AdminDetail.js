@@ -6,6 +6,7 @@ import "./AdminAllData.css"
 const AdminDetail = () => {
   const [admin_detail, setAdmin_detail] = useState(false);
   const redirect2 = useNavigate();
+  console.log(setAdmin_detail);
 
   const s_admin_detail = () => {
     redirect2("/AdminAllData");
