@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useEffect, Suspense } from "react";
 import AdminLogin from "./component/AdminPage/AdminLogin";
 import AboutUs from "./component/Contact Us/AboutUs";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route ,AuthenticatedRoute } from "react-router-dom";
 import Spinner from "./component/Spinner/Spinner";
 import MovieLinkData from "./component/MovieData/MovieLinkData";
 import AdminAllData from "./component/ShowAdminData/AdminAllData";
@@ -29,6 +29,7 @@ function App() {
       >
         <NavBar />
         <Routes>
+
           <Route exact path="/" element={<HomePage />} />
           <Route path="/AdminLogin" element={<AdminLogin />} />
           <Route path="/AboutUs" element={<AboutUs />} />

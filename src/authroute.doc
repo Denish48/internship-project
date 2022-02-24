@@ -1,0 +1,34 @@
+<AuthenticatedRoute
+  exact
+  path="/AboutUS"
+  component={AboutUs}
+<Route path="/AboutUS" render={
+  return (
+    AboutUs
+    ? <AboutUS />
+    : <h1>Page not found</h1>
+  )
+} />
+
+
+//second method:
+const Root = ({ session }) => {
+  const isLoggedIn = session && session.getCurrentUser
+  return (
+    <Router>
+      {!isLoggedIn ? (
+        <Switch>
+          <Route path="/signin" component={<Signin />} />
+          <Redirect to="/signin" />
+        </Switch>
+      ) : (
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/something-else" component={SomethingElse} />
+          <Redirect to="/" />
+        </Switch>
+      )}
+    </Router>
+  )
+}
