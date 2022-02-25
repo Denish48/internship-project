@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, Suspense } from "react";
+import React, { useState,useEffect, Suspense } from "react";
 import AdminLogin from "./component/AdminPage/AdminLogin";
 import AboutUs from "./component/Contact Us/AboutUs";
 import { Routes, Route ,AuthenticatedRoute } from "react-router-dom";
@@ -16,6 +16,8 @@ function App() {
     window.history.replaceState(null, null, "/");
 
   });
+
+  const[admin_user,setAdmin_user]=useState(false)
 
   return (
     <div className="App">
