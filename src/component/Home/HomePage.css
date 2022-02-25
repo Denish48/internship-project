@@ -59,6 +59,9 @@
 }
 .home_pagination
 {
-  color: white !important;
+color: #fff;
   background-color: white;
+  justify-content: center;
+  display: flex;
+  width: auto;
 }
