@@ -1,6 +1,5 @@
 <AuthenticatedRoute
-  exact
-  path="/AboutUS"
+  exact path="/AboutUS"
   component={AboutUs}
 <Route path="/AboutUS" render={
   return (

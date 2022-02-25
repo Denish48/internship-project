@@ -6,6 +6,7 @@ import { Container } from "react-bootstrap";
 import Spinner from "../Spinner/Spinner";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Pagination from "@material-ui/lab/Pagination";
 
 const HomePage = () => {
   const [data_Show, setData_Show] = useState([]);
@@ -61,6 +62,7 @@ const HomePage = () => {
             }
           >
             <br />
+
             <input
               ref={get_focus}
               placeholder="Search Here"
@@ -72,8 +74,12 @@ const HomePage = () => {
               <SearchIcon />
             </button>
             <br />
+
             <div className="movie-collection">
               <Container>
+                <div className="home_pagination">
+                  <Pagination count={10} />
+                </div>
                 {data_Show.map((cur_ELE, index) => {
                   return (
                     <div key={index}>
