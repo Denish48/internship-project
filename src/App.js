@@ -33,8 +33,8 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/AdminLogin" element={<AdminLogin />} />
           <Route path="/AboutUs" element={<AboutUs />} />
-          <Route exact path="/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg" element={<MovieLinkData />} />
-          <Route exact path="/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54" element={<AdminAllData />} />
+          <Route path="/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg" element={<MovieLinkData />} />
+          <Route path="/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54" element={<AdminAllData />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
