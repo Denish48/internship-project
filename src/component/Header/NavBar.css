@@ -27,15 +27,20 @@
 .bottom-header nav.navbar .main-navigation .nav-link {
   text-transform: capitalize;
   color: #fff;
-  padding: 25px 16px;
+  border: 0px solid transparent;
+  border-radius: 30px;
+  /* padding: 25px 16px; */
 }
 .bottom-header nav.navbar .main-navigation .nav-link:hover {
   /* background-color: #c46b1e; */
-  color: #db4e4e;
+  /* color: #190977; */
+  color: white;
+  background-color: #a55c1b;
 }
-.bottom-header nav.navbar .main-navigation .nav-link:active {
+.bottom-header nav.navbar .main-navigation .nav-link:active  {
   /* background-color: #c46b1e; */
-  color: #e2a851;
+  color: #e2a851 ;
+  background-color: white ;
 }
 
 /* .bottom-header

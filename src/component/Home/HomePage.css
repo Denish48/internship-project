@@ -55,17 +55,19 @@
 
 .maindiv .main-text a:hover {
   color: rgb(249, 250, 250);
-  color: red !important;
+  color: rgb(208, 255, 0) !important;
+  text-decoration: underline !important;
+  text-underline-position: under !important;
+  font-weight: bolder;
 }
-.home_pagination
-{
-color: #fff;
+.home_pagination {
+  color: #fff;
   background-color: transparent;
   justify-content: center;
   display: flex;
   width: auto;
 }
-p{
+p {
   justify-content: center;
   display: flex;
   padding-top: 10px;
