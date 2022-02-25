@@ -60,8 +60,16 @@
 .home_pagination
 {
 color: #fff;
-  background-color: white;
+  background-color: transparent;
   justify-content: center;
   display: flex;
   width: auto;
+}
+p{
+  justify-content: center;
+  display: flex;
+  padding-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bolder;
 }

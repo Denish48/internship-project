@@ -82,7 +82,7 @@ const update_admin_data=()=>
                         onClick={() => {
                           deleteadmindata(value.id);
                         }}
-                        className="btn btn-warning"
+                        className="btn btn-danger"
                       >
                         <DeleteForeverIcon />
                         delete

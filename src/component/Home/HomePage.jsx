@@ -77,9 +77,6 @@ const HomePage = () => {
 
             <div className="movie-collection">
               <Container>
-                <div className="home_pagination">
-                  <Pagination count={10} />
-                </div>
                 {data_Show.map((cur_ELE, index) => {
                   return (
                     <div key={index}>
