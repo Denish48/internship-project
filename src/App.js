@@ -15,11 +15,10 @@ function App() {
   useEffect(() => {
     document.title = "MoviesDownload";
     window.history.replaceState(null, null, "/");
-
   });
 
   // const [admin_user, setAdmin_user] = useState(false)
-  const[nav_Title,setNav_Title]=useState("MOVIES")
+  const [nav_Title, setNav_Title] = useState("MOVIES");
 
   return (
     <div className="App">
@@ -33,13 +32,18 @@ function App() {
       >
         <NavBar title={nav_Title} before={setNav_Title} />
         <Routes>
-
           <Route exact path="/" element={<HomePage change={setNav_Title} />} />
           <Route path="/AdminLogin" element={<AdminLogin />} />
           <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/WallpaperDataShow" element={<WallpaperDataShow  />} />
-          <Route path="/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg" element={<MovieLinkData />} />
-          <Route path="/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54" element={<AdminAllData />} />
+          <Route path="/WallpaperDataShow" element={<WallpaperDataShow />} />
+          <Route
+            path="/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg"
+            element={<MovieLinkData />}
+          />
+          <Route
+            path="/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54"
+            element={<AdminAllData />}
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
