@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 //import database from firebase file:
 import { dt } from "../FireBase";
 //import the required value from firestore
@@ -9,7 +9,6 @@ import AdminRegister from "../AdminCreatePopUp/AdminRegister";
 import AdminDetail from "../ShowAdminData/AdminDetail";
 import MovieList from "../MovieLists/MovieList";
 import "./MovieLinkData.css";
-
 
 const MovieLinkData = () => {
   //state for getinput data from form:
@@ -68,7 +67,6 @@ const MovieLinkData = () => {
       setDown720P_Link("");
       setimg_Link("");
       window.history.replaceState(null, null, "/");
-
     }
   };
   //for image:
@@ -90,7 +88,6 @@ const MovieLinkData = () => {
       </div>
       <div className="data-file">
         <h2>Enter Movie Data</h2>
-
 
         {/* <span>
         <input type="file" onChange={(e)=>{setImage(e.target.files[0])}}/>
