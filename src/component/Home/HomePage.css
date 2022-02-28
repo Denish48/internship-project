@@ -75,3 +75,6 @@ p {
   margin-right: 10px;
   font-weight: bolder;
 }
+.btn btn-dark{
+  height: 2px;
+}
