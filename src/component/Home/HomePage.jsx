@@ -6,9 +6,10 @@ import { Container } from "react-bootstrap";
 import Spinner from "../Spinner/Spinner";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Pagination from "@material-ui/lab/Pagination";
+// import Pagination from "@material-ui/lab/Pagination";
 
 const HomePage = () => {
+  
   const [data_Show, setData_Show] = useState([]);
   //let variable for collect the data from database:
 

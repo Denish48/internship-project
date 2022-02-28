@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import database from firebase file:
-import  {dt}  from "../FireBase";
+import { dt } from "../FireBase";
 //import the required value from firestore
 import { addDoc, collection } from "firebase/firestore";
 import "../MovieData/MovieLinkData.css";
@@ -71,14 +71,14 @@ const MovieLinkData = () => {
 
     }
   };
-//for image:
-// const [image , setImage] = useState('');
-// const upload = ()=>{
-//   if(image == null)
-//     return;
-//   dt.ref(`/images/${image.name}`).put(image)
-//   .on("state_changed" , alert("success") , alert);
-// }
+  //for image:
+  // const [image , setImage] = useState('');
+  // const upload = ()=>{
+  //   if(image == null)
+  //     return;
+  //   dt.ref(`/images/${image.name}`).put(image)
+  //   .on("state_changed" , alert("success") , alert);
+  // }
   return (
     <>
       {/* button for add new admin user */}
@@ -179,10 +179,10 @@ const MovieLinkData = () => {
       <div>
         <MovieList name={setMovie_Name} />
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };
