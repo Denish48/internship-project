@@ -6,10 +6,11 @@ import { Container } from "react-bootstrap";
 import Spinner from "../Spinner/Spinner";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useNavigate } from "react-router";
 // import Pagination from "@material-ui/lab/Pagination";
 
-const HomePage = () => {
-
+const HomePage = ({ change }) => {
+  const redirect4 = useNavigate();
   const [data_Show, setData_Show] = useState([]);
   //let variable for collect the data from database:
 
@@ -48,6 +49,10 @@ const HomePage = () => {
     setMovie_flag(false);
   };
 
+  const wallpaper_data = () => {
+    redirect4("/WallpaperDataShow");
+    change("WALLPAPERS");
+  };
   return (
     <>
       {!movie_flag && (
@@ -63,7 +68,11 @@ const HomePage = () => {
             }
           >
             <br />
-
+            <button className="btn btn-light" onClick={wallpaper_data}>
+              Wallpapers
+            </button>
+            <br />
+            <br />
             <input
               ref={get_focus}
               placeholder="Search Here"

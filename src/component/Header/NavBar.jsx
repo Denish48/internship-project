@@ -6,7 +6,13 @@ import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
 import { Link } from "react-router-dom";
 import "../Header/NavBar.css";
 import "./demo.css"
-const NavBar = () => {
+const NavBar = ({title,before}) => {
+
+  // const[nav_Title,setNav_Title]=useState("Movies")
+const before_title=()=>
+{
+  before("MOVIES")
+}
 
 
   return (
@@ -16,11 +22,11 @@ const NavBar = () => {
           <Navbar>
             <div className="logo">
               <Navbar.Brand as={Link} to="/" style={{ color: "white" }}>
-                <h1> Movies </h1>
+                <h1> {title} </h1>
               </Navbar.Brand>
             </div>
             <div className="main-navigation">
-              <NavLink as={Link} to="/">
+              <NavLink as={Link} to="/" onClick={before_title}>
                 <HomeTwoToneIcon /> home
               </NavLink>
               <NavLink as={Link} to="/AboutUS">
