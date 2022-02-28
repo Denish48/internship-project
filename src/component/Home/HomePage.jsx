@@ -9,7 +9,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // import Pagination from "@material-ui/lab/Pagination";
 
 const HomePage = () => {
-  
+
   const [data_Show, setData_Show] = useState([]);
   //let variable for collect the data from database:
 
@@ -83,7 +83,7 @@ const HomePage = () => {
                     <div key={index}>
                       <div className="maindiv">
                         <div className="movie-image">
-                          <img src={cur_ELE.image_link} />
+                          <img src={cur_ELE.image_link} alt="" />
                         </div>
                         <div className="main-text">
                           <p style={{ fontWeight: "bold" }}>
@@ -133,7 +133,7 @@ const HomePage = () => {
             {data_Show
               .filter(
                 (item) =>
-                  item.movie_Name.toLowerCase().replace(/\s+/g, "") ==
+                  item.movie_Name.toLowerCase().replace(/\s+/g, "") ===
                   search.toLowerCase().replace(/\s+/g, "")
               )
               .map((cur_ELE, index) => {
@@ -143,7 +143,7 @@ const HomePage = () => {
                       <div key={index}>
                         <div className="maindiv">
                           <div className="movie-image">
-                            <img src={cur_ELE.image_link} />
+                            <img src={cur_ELE.image_link} alt="" />
                           </div>
                           <div className="main-text">
                             <p style={{ fontWeight: "bold" }}>
