@@ -48,9 +48,9 @@ const AdminRegister = () => {
     <>
       {!add_page_Render && (
         <div>
-        <button className="btn btn-success" onClick={show_form}>
-          Add New Admin
-        </button>
+          <button className="btn btn-success" onClick={show_form}>
+            Add New Admin
+          </button>
         </div>
       )}
       {add_page_Render && (

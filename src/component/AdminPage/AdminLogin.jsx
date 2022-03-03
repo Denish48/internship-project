@@ -24,18 +24,27 @@ const AdminLogin = () => {
       where("user_name", "==", a_Username)
     );
     const docsSnap = await getDocs(q);
-    docsSnap.forEach((doc) => {
-      if (doc.exists()) {
-        console.log("login");
-        redirect("/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg");
-        window.history.replaceState(null, null, "/");
+    console.log("this is firestrore value", docsSnap);
+    // docsSnap.forEach((doc) => {
+    //   if () {
+    //     console.log("login");
+    //     redirect("/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg");
+    //     window.history.replaceState(null, null, "/");
 
-        
-      } else {
-        console.log("failed");
-        setError("You Are Not Admin Member");
-      }
-    });
+
+    //   } else {
+    //     console.log("failed");
+    //     setError("You Are Not Admin Member");
+    //   }
+    // });
+    if (docsSnap?.docs.length > 0) {
+      console.log("login");
+      redirect("/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg");
+      window.history.replaceState(null, null, "/");
+    }
+    else {
+      console.log("fail")
+    }
   };
 
   return (
