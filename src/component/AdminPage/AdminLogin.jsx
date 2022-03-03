@@ -31,19 +31,23 @@ const AdminLogin = () => {
     //     redirect("/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg");
     //     window.history.replaceState(null, null, "/");
 
-
     //   } else {
     //     console.log("failed");
     //     setError("You Are Not Admin Member");
     //   }
     // });
-    if (docsSnap?.docs.length > 0) {
+
+    if (a_Password === "" || a_Email === "" || a_Username === "") {
+      setError("Enter Data");
+    } else if (docsSnap?.docs.length > 0) {
       console.log("login");
-      redirect("/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg");
+      redirect(
+        "/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg"
+      );
       window.history.replaceState(null, null, "/");
-    }
-    else {
-      console.log("fail")
+    } else {
+      setError("You Are Not Admin Member");
+      console.log("fail");
     }
   };
 
@@ -98,8 +102,9 @@ const AdminLogin = () => {
               Login
             </button>
           </form>
+
           <br />
-          <h4 style={{ color: "skyblue" }}>{error}</h4>
+          <h4 style={{ color: "orange" }}>{error}</h4>
         </div>
       </div>
     </>
