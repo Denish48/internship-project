@@ -14,7 +14,7 @@ const NavBar = React.lazy(() => import("./component/Header/NavBar"));
 function App() {
   useEffect(() => {
     document.title = "MoviesDownload";
-    // window.history.replaceState(null, null, "/");
+    window.history.replaceState(null, null, "/");
   });
 
   // const [admin_user, setAdmin_user] = useState(false)
@@ -27,7 +27,7 @@ function App() {
       <Suspense
         fallback={
           <>
-            <h1>Loading....</h1>
+            <h1 style={{color:"white"}}>Loading....</h1>
             <Spinner />
           </>
         }
@@ -59,7 +59,7 @@ function App() {
           <Route
             path="/AdminAllData"
             element={<AdminAllData />} />
-             <Route exact path="/" element={<HomePage change={setNav_Title} />} />
+          <Route exact path="/" element={<HomePage change={setNav_Title} />} />
           <Route path="/AdminLogin" element={<AdminLogin authenticate={setLogedin}/>} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/WallpaperDataShow" element={<WallpaperDataShow />} />

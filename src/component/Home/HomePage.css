@@ -27,10 +27,24 @@
   float: left;
   margin: 26px;
   padding-right: 6px;
+
+}
+.maindiv:hover{
+  box-shadow: 0 0px 15px 0px rgb(230, 225, 225); 
+  transition: box-shadow .3s;
+  /* width: 300px; */
+  /* height: 500px; */
+  /* margin: 50px; */
+  /* border-radius:10px; */
+  /* border: 1px solid #ccc; */
+  /* background: rgb(248, 151, 87); */
+  /* float: left; */
+  
 }
 .maindiv .movie-image {
   width: 100%;
 }
+
 .maindiv .movie-image img {
   width: 100%;
   max-width: 100%;
