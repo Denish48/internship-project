@@ -3,7 +3,7 @@ import "./AdminPage.css";
 import { dt } from "../FireBase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-const AdminLogin = () => {
+const AdminLogin = ({authenticate}) => {
   //for redirect component:
 
   const redirect = useNavigate();
@@ -42,9 +42,10 @@ const AdminLogin = () => {
     } else if (docsSnap?.docs.length > 0) {
       console.log("login");
       redirect(
-        "/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg"
+        "/MovieLinkdata"
       );
-      window.history.replaceState(null, null, "/");
+      authenticate(true);
+      // window.history.replaceState(null, null, "/");
     } else {
       setError("You Are Not Admin Member");
       console.log("fail");

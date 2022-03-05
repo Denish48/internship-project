@@ -22,7 +22,7 @@ const HomePage = ({ change }) => {
     console.log(data);
     await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })));
     //clear the browser history:
-    window.history.replaceState(null, null, "/");
+    // window.history.replaceState(null, null, "/");
   };
   //when site load first time call the function and show the data:
   useEffect(() => {

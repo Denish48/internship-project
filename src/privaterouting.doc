@@ -1,0 +1,128 @@
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+// import Home from "./components/Home";
+ import Dashboard from "./components/Dashboard";
+// import SignIn from "./components/SignIn";
+// import PrivateRoute from "./components/PrivateRoute";
+// import PublicRoute from "./components/PublicRoute";
+import Auth from "./Pages/auth";
+import Profile from "./Pages/profile";
+
+const App3 = () => {
+
+  const[auth,setAuth]=useState(null);
+
+  useEffect(() => {
+    let user = localStorage.getItem("user");
+    user && JSON.parse(user) ? setAuth(true) : setAuth(false);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("user", auth);
+  }, [auth]);
+
+
+  return (
+  
+      <Routes>
+      {!auth && (
+        <Route path="/auth" 
+        element={<Auth authenticate={()=>setAuth(true)}/>}
+        />   
+      )}
+
+        {auth && <>
+          <Route path="/profile"
+          element={<Profile logout={()=>setAuth(false)}/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+        </>
+        
+        }
+        <Route path="/dashboard" element={<Dashboard />}/>
+
+          <Route path="*" element={<Navigate to={auth ? "/profile" : "/auth"} />} />
+
+        {/* <PublicRoute restricted={false} element={<Home/>} path="/" exact /> 
+        <PublicRoute restricted={true} element={<SignIn/>} path="/signin" exact />
+        <PrivateRoute element={<Dashboard />} path="/dashboard" exact /> */}
+      </Routes>
+
+  );
+};
+
+export default App3;
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+// import Home from "./components/Home";
+ import Dashboard from "./components/Dashboard";
+// import SignIn from "./components/SignIn";
+// import PrivateRoute from "./components/PrivateRoute";
+// import PublicRoute from "./components/PublicRoute";
+import Auth from "./Pages/auth";
+import Profile from "./Pages/profile";
+
+const App3 = () => {
+
+  const[auth,setAuth]=useState(null);
+
+  useEffect(() => {
+    let user = localStorage.getItem("user");
+    user && JSON.parse(user) ? setAuth(true) : setAuth(false);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("user", auth);
+  }, [auth]);
+
+
+  return (
+  
+      <Routes>
+      {!auth && (
+        <Route path="/auth" 
+        element={<Auth authenticate={()=>setAuth(true)}/>}
+        />   
+      )}
+
+        {auth && <>
+          <Route path="/profile"
+          element={<Profile logout={()=>setAuth(false)}/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/dashboard" element={<Dashboard />}/>
+        </>
+        
+        }
+
+          <Route path="*" element={<Navigate to={auth ? "/profile" : "/auth"} />} />
+
+        {/* <PublicRoute restricted={false} element={<Home/>} path="/" exact /> 
+        <PublicRoute restricted={true} element={<SignIn/>} path="/signin" exact />
+        <PrivateRoute element={<Dashboard />} path="/dashboard" exact /> */}
+      </Routes>
+
+  );
+};
+
+export default App3;
+
+
+//my
+
+
+{/* <Routes>
+          <Route exact path="/" element={<HomePage change={setNav_Title} />} />
+          <Route path="/AdminLogin" element={<AdminLogin />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/WallpaperDataShow" element={<WallpaperDataShow />} />
+          <Route
+            path="/MovieLinkdata/jfhui/wehfrg54th6/55trg53/f1gtr65/h4r6541bh6/4h45t54/th54/54g/575rg"
+            element={<MovieLinkData />}
+          />
+          <Route
+            path="/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54"
+            element={<AdminAllData />}
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes> */}

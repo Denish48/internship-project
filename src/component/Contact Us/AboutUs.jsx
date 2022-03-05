@@ -34,7 +34,7 @@ const AboutUs = () => {
         setViewer_Email("");
         setViewer_Contact_No("");
         setViewer_Message("");
-        window.history.replaceState(null, null, "/");
+        // window.history.replaceState(null, null, "/");
 
       }
     }

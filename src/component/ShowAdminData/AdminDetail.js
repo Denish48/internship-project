@@ -9,8 +9,8 @@ const AdminDetail = () => {
   console.log(setAdmin_detail);
 
   const s_admin_detail = () => {
-    redirect2("/AdminAllData/fhegfy/wegyuwegbd/ewfr54r84/reg4r4w5/ref4r5e4g/ref4erw5/qw54");
-    window.history.replaceState(null, null, "/");
+    redirect2("/AdminAllData");
+    // window.history.replaceState(null, null, "/");
   };
 
   return (

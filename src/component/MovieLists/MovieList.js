@@ -22,7 +22,7 @@ const MovieList = () => {
     await setAll_list_data(
       data.docs.reverse().map((doc) => ({ ...doc.data(), id: doc.id }))
     );
-    window.history.replaceState(null, null, "/");
+    // window.history.replaceState(null, null, "/");
 
   };
   //when site load first time call the function and show the data:
