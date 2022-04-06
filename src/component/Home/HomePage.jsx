@@ -20,9 +20,10 @@ const HomePage = ({ change }) => {
   const showdata = async () => {
     const data = await getDocs(dtds);
     console.log(data);
-    await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() })));
+    await setData_Show(data.docs.reverse().map((doc) => ({ ...doc.data() }) ));
     //clear the browser history:
-    // window.history.replaceState(null, null, "/");
+    // window.history.replaceState(null, null, "/");   
+    
   };
   //when site load first time call the function and show the data:
   useEffect(() => {
@@ -46,6 +47,7 @@ const HomePage = ({ change }) => {
   console.log(search);
   //back button onclick function:
   const search_back = () => {
+    
     setMovie_flag(false);
   };
 
@@ -94,6 +96,7 @@ const HomePage = ({ change }) => {
                         <div className="movie-image">
                           <img src={cur_ELE.image_link} alt="" />
                         </div>
+                        
                         <div className="main-text">
                           <p style={{ fontWeight: "bold" }}>
                             {cur_ELE.movie_Name}

@@ -21,7 +21,8 @@ const AdminLogin = ({authenticate}) => {
       collection(dt, "AdminRegister"),
       where("email", "==", a_Email),
       where("password", "==", a_Password),
-      where("user_name", "==", a_Username)
+      where("user_name", "==", a_Username),
+     
     );
     const docsSnap = await getDocs(q);
     console.log("this is firestrore value", docsSnap);
@@ -41,15 +42,23 @@ const AdminLogin = ({authenticate}) => {
       setError("Enter Data");
     } else if (docsSnap?.docs.length > 0) {
       console.log("login");
+     
+      localStorage.setItem("email",JSON.stringify(a_Email))
+      localStorage.setItem("password",JSON.stringify(a_Password))
+      localStorage.setItem("username",JSON.stringify(a_Username))
+      
       redirect(
         "/MovieLinkdata"
       );
       authenticate(true);
       // window.history.replaceState(null, null, "/");
-    } else {
+    } 
+  
+    else {
       setError("You Are Not Admin Member");
       console.log("fail");
     }
+    
   };
 
   return (

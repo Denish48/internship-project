@@ -35,9 +35,16 @@ const AboutUs = () => {
         setViewer_Contact_No("");
         setViewer_Message("");
         // window.history.replaceState(null, null, "/");
+      
 
       }
     }
+    // useEffect(() => {
+    //    const h =window.history.back(); 
+    //   const v=window.onload();
+    //   console.log(h)
+    //   console.log(v)
+    // });
   };
 
   return (

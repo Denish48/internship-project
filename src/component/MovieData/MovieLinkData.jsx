@@ -40,6 +40,7 @@ const MovieLinkData = () => {
         movie_Name: movie_Name,
       });
     }
+    console.log("")
   };
 
   //onChange event function for input value:

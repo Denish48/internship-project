@@ -5,8 +5,8 @@ import UnsplashReact, {
 import "./WallpaperDataShow.css";
 import "../../App.css"
 
-const MY_ACCESS_KEY = "WqDpKTnRaRLgHVyNOExPGeSFVdujHOpYhl4jWJ2w3L4";
-const MY_SECRET_KEY = "wl4gRWE6FgygtlF9koseXM5_Yr1Ta_cipZ8WV2zkeTw";
+const MY_ACCESS_KEY = "yetH22SxHdQddrqZQ41GfTYsq7N-U78AuByI0G9Atxo";
+const MY_SECRET_KEY = "knk0R0vAU4hhqMbLmDKX92x5c3WXojdK6LrSzqYIpyY";
 const COLOR = "#00000";
 
 function WallpaperDataShow() {
